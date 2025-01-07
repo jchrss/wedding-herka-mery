@@ -1,5 +1,6 @@
 // app/layout.js
 import { Playfair_Display, Cormorant } from "next/font/google";
+import { MusicProvider } from './contexts/MusicContext';
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -43,7 +44,9 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className="antialiased overflow-x-hidden">
+      <MusicProvider>
         <main>{children}</main>
+        </MusicProvider>
       </body>
     </html>
   );

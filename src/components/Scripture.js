@@ -24,11 +24,10 @@ const Scripture = () => {
       <div className={styles.scriptureContainer}>
         <div className={styles.doveContainer}>
           <Image 
-            src="/asset/doves-rings.png"
-            alt="Doves with wedding rings"
-            width={200}
-            height={80}
-            layout="responsive"
+            src="/asset/1.jpg"
+            alt="Couple photo"
+            fill
+            style={{ objectFit: 'cover' }}
           />
         </div>
 

@@ -1,32 +1,46 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
 import { Music2, Pause } from 'lucide-react';
-import styles from './musicWidget.module.css';
+import styles from '../app/styles/musicWidget.module.css';
+import { useMusicContext } from '../app/contexts/MusicContext';
 
 export default function MusicWidget() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
+  const { shouldPlayMusic, setShouldPlayMusic } = useMusicContext();
 
   const toggleMusic = () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
         setIsPlaying(false);
+        setShouldPlayMusic(false);
       } else {
-        audioRef.current.muted = false; // Unmute the audio when playing
+        audioRef.current.muted = false;
         audioRef.current.play().catch((error) => {
           console.warn("Playback failed:", error);
         });
         setIsPlaying(true);
+        setShouldPlayMusic(true);
       }
     }
   };
 
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.muted = true; // Ensure the audio is muted initially
+      audioRef.current.muted = true;
     }
   }, []);
+
+  useEffect(() => {
+    if (shouldPlayMusic && audioRef.current && !isPlaying) {
+      audioRef.current.muted = false;
+      audioRef.current.play().catch((error) => {
+        console.warn("Playback failed:", error);
+      });
+      setIsPlaying(true);
+    }
+  }, [shouldPlayMusic, isPlaying]);
 
   return (
     <div className={styles.musicWidget}>
@@ -43,7 +57,7 @@ export default function MusicWidget() {
       </button>
       <audio
         ref={audioRef}
-        src="/Music.mp3" // Ensure the file is in the public folder
+        src="/Music.mp3"
         loop
       />
     </div>
