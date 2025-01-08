@@ -12,7 +12,7 @@ const VenueSection = () => {
         <div className={styles.timelineContainer}>
           <div className={styles.eventCard}>
             <h3>Pemberkatan</h3>
-            <time>10:00 WIB - Selesai</time>
+            <time>Minggu, 19 Januari 2025 | 10:00 WIB - Selesai</time>
             <div className={styles.venueInfo}>
               <span>
                 <MapPin size={18} color="#8B7355" />
@@ -28,7 +28,7 @@ const VenueSection = () => {
 
           <div className={styles.eventCard}>
             <h3>Resepsi</h3>
-            <time>13:00 WIB - Selesai</time>
+            <time>Minggu 19 Januari 2025 | 13:00 WIB - Selesai</time>
             <div className={styles.venueInfo}>
               <span>
                 <MapPin size={18} color="#8B7355" />

@@ -6,24 +6,24 @@ const Scripture = () => {
   return (
     <section className={styles.scriptureSection}>
       <div className={styles.watercolorBg} />
-      <Image 
-        src="/asset/leaf-decoration.png" 
-        alt="" 
+      <Image
+        src="/asset/leaf-decoration.png"
+        alt=""
         className={styles.leafLeft}
         width={150}
         height={200}
       />
-      <Image 
-        src="/asset/leaf-decoration.png" 
-        alt="" 
+      <Image
+        src="/asset/leaf-decoration1.png"
+        alt=""
         className={styles.leafRight}
         width={150}
         height={200}
       />
-      
+
       <div className={styles.scriptureContainer}>
         <div className={styles.doveContainer}>
-          <Image 
+          <Image
             src="/asset/1.jpg"
             alt="Couple photo"
             fill
@@ -70,6 +70,13 @@ const Scripture = () => {
               Yesaya 55:8-9 (TB)
             </p>
           </div>
+          <Image
+            src="/asset/leaf-decoration2.png"
+            alt=""
+            className={styles.leafLeft}
+            width={150}
+            height={200}
+          />
         </div>
       </div>
     </section>
