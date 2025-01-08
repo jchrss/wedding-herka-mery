@@ -18,48 +18,60 @@ export default function ReceiverPage({ params }) {
   };
 
   return (
-    <main className={styles.mainContainer}>
+    <div className={styles.pageContainer}>
       <div className={styles.backgroundOverlay} />
       
-      <div className={styles.card}>
-        <div className={styles.imageWrapper}>
-          <Image
-            src="/asset/1.jpg"
-            alt="Wedding"
-            width={200}
-            height={200}
-            className={styles.image}
-            priority
-          />
-        </div>
-
-        <div className={styles.content}>
-          <h1 className={styles.mainTitle}>The Wedding Of</h1>
-          
-          <div className={styles.names}>
-            <span className={styles.brideName}>Franky</span>
-            <span className={styles.ampersand}>&</span>
-            <span className={styles.groomName}>Juli</span>
+      <main className={styles.mainContent}>
+        <div className={styles.invitationCard}>
+          <div className={styles.imageSection}>
+            <div className={styles.imageFrame}>
+              <Image
+                src="/asset/1.jpg"
+                alt="Wedding"
+                width={150}
+                height={150}
+                className={styles.coupleImage}
+                priority
+              />
+            </div>
           </div>
 
-          <div className={styles.invitationText}>
-            <h2 className={styles.dear}>Dear,</h2>
-            <h3 className={styles.recipientName}>{decodedName}</h3>
-            
-            <p className={styles.message}>
-              We invite you to share in our joy and request your presence at our wedding ceremony
-            </p>
+          <div className={styles.contentSection}>
+            <div className={styles.header}>
+              <h1 className={styles.title}>The Wedding Of</h1>
+              
+              <div className={styles.coupleNames}>
+                <span className={styles.name}>Franky</span>
+                <span className={styles.separator}>&</span>
+                <span className={styles.name}>Juli</span>
+              </div>
+            </div>
+
+            <div className={styles.invitation}>
+              <div className={styles.recipientSection}>
+                <span className={styles.dear}>Dear,</span>
+                <h2 className={styles.recipientName}>{decodedName}</h2>
+              </div>
+              
+              <p className={styles.message}>
+                We invite you to share in our joy and request your presence at our wedding ceremony
+              </p>
+
+              <button 
+                onClick={handleOpenInvitation} 
+                className={styles.openButton}
+                aria-label="Open Wedding Invitation"
+              >
+                Open Invitation
+              </button>
+
+              <p className={styles.note}>
+                *Please bring this invitation with you
+              </p>
+            </div>
           </div>
-
-          <button onClick={handleOpenInvitation} className={styles.openButton}>
-            Open Invitation
-          </button>
-
-          <p className={styles.footnote}>
-            *Please bring this invitation with you
-          </p>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }
