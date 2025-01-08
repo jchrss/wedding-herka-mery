@@ -4,7 +4,7 @@ import Scripture from '@/components/Scripture';
 import GiftSection from '@/components/GiftSection';
 import WishesSection from '@/components/WishesSection';
 import VenueSection from '@/components/VenueSection';
-import FamilySection from '@/components/familySection';
+import FamilySection from '@/components/FamilySection';
 
 export default function Home() {
   return (

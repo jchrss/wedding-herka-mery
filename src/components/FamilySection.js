@@ -1,4 +1,3 @@
-// FamilySection.js
 import { Instagram } from 'lucide-react';
 import Image from 'next/image';
 import styles from '../app/styles/FamilySection.module.css';
