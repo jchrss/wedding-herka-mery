@@ -18,7 +18,7 @@ const VenueSection = () => {
                 <MapPin size={18} color="#8B7355" />
                 GPdI Rehobot Bosua
               </span>
-              <p>Mentawai Islands Regency, West Sumatra 25932</p>
+              <p>Jl. Bosua Sipora Mentawai, Sumatera Barat</p>
             </div>
             <button className={styles.actionButton}>
               <MapPin size={18} />

@@ -3,9 +3,10 @@
   background-color: #C5A572;
   background-image: linear-gradient(to bottom, rgba(197, 165, 114, 0.95), rgba(197, 165, 114, 0.95)),
                     url('/asset/floral-pattern.png');
-  padding: clamp(3rem, 10vw, 6rem) 1rem;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .watercolorBg {
@@ -19,49 +20,32 @@
   pointer-events: none;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.coupleImageContainer {
-  max-width: 1000px;
-  margin: 0 auto 4rem;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 4px solid rgba(255, 255, 255, 0.2);
-}
-
-.imageWrapper {
+.imageSection {
   position: relative;
   width: 100%;
-  aspect-ratio: 16/9;
-  max-height: 400px;
-  overflow: hidden;
+  height: 50vh;
+  min-height: 400px;
 }
 
 .coupleImage {
   object-fit: cover;
   object-position: center center;
-  transition: transform 0.6s ease;
 }
 
-.coupleImage:hover {
-  transform: scale(1.02);
+.contentSection {
+  padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem);
+  position: relative;
+  z-index: 1;
 }
 
 .coupleGrid {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem;
   max-width: 900px;
   margin: 0 auto;
 }
 
-/* Names Section */
 .namesContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -76,14 +60,10 @@
   gap: 0.5rem;
 }
 
-/* Parents Section */
 .parentsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 1rem;
 }
 
@@ -107,7 +87,7 @@
 }
 
 .parentInfo {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .parentInfo p {
@@ -115,13 +95,15 @@
   font-size: 1.125rem;
   color: #ffffff;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 
 .andSymbol {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
   font-style: italic;
+  display: block;
+  margin: 0.25rem 0;
 }
 
 .socialLinksContainer {
@@ -175,6 +157,15 @@
 }
 
 @media (max-width: 768px) {
+  .imageSection {
+    height: 40vh;
+    min-height: 300px;
+  }
+
+  .contentSection {
+    padding: 1.5rem 1rem;
+  }
+
   .namesContainer {
     gap: 1rem;
   }
@@ -187,20 +178,25 @@
     font-size: 1rem;
   }
 
-  .coupleImageContainer {
-    margin-bottom: 3rem;
-  }
-
   .parentInfo {
-    padding: 0.75rem;
+    padding: 0.25rem;
   }
 
   .parentInfo p {
     font-size: 1rem;
   }
+
+  .parentsContainer {
+    padding: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .imageSection {
+    height: 35vh;
+    min-height: 250px;
+  }
+
   .nickname {
     font-size: 1.5rem;
   }

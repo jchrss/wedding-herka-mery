@@ -258,3 +258,29 @@
 .toRecipient {
   font-size: 1rem;
 }
+
+/* Add to page.module.css */
+.sectionHidden {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+}
+
+.sectionVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: Add different delays for children elements */
+.sectionHidden > *:nth-child(1) { transition-delay: 0.2s; }
+.sectionHidden > *:nth-child(2) { transition-delay: 0.4s; }
+.sectionHidden > *:nth-child(3) { transition-delay: 0.6s; }
+
+.footer {
+  width: 100%;
+  padding: 0.5rem 0;
+  text-align: center;
+  background-color: white;
+  position: relative;
+  z-index: 10;
+}

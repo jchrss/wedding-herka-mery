@@ -36,9 +36,9 @@ export default function ReceiverPage({ params }) {
           <h1 className={styles.title}>The Wedding Of</h1>
           
           <div className={styles.coupleNames}>
-            <span>John</span>
+            <span>Franky</span>
             <span>&</span>
-            <span>Jane</span>
+            <span>Juli</span>
           </div>
 
           <h2 className={styles.subtitle}>Dear,</h2>

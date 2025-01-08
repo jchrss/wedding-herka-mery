@@ -1,4 +1,3 @@
-// FamilySection.js
 import { Instagram } from 'lucide-react';
 import Image from 'next/image';
 import styles from '../app/styles/FamilySection.module.css';
@@ -21,7 +20,7 @@ const FamilySection = () => {
       name: "Juli Meri Eni Sababalat, S.Pd",
       nickname: "Juli",
       parents: {
-        father: "Horas Sababalat",
+        father: "Bpk. Horas Sababalat",
         mother: "Ny. Nonnik Sapalakkai"
       },
       instagram: "@bridehandle"
@@ -32,20 +31,18 @@ const FamilySection = () => {
     <section className={styles.familySection}>
       <div className={styles.watercolorBg} />
       
-      <div className={styles.container}>
-        <div className={styles.coupleImageContainer}>
-          <div className={styles.imageWrapper}>
-            <Image 
-              src={coupleDetails.couple.image}
-              alt="The Happy Couple"
-              fill
-              className={styles.coupleImage}
-              priority
-              sizes="(max-width: 768px) 100vw, 1000px"
-            />
-          </div>
-        </div>
+      <div className={styles.imageSection}>
+        <Image 
+          src={coupleDetails.couple.image}
+          alt="The Happy Couple"
+          fill
+          className={styles.coupleImage}
+          priority
+          sizes="100vw"
+        />
+      </div>
 
+      <div className={styles.contentSection}>
         <div className={styles.coupleGrid}>
           {/* Names Section */}
           <div className={styles.namesContainer}>
@@ -76,36 +73,20 @@ const FamilySection = () => {
           <div className={styles.parentsContainer}>
             {/* Parents Labels */}
             <div className={styles.parentLabels}>
-              <span>The Son of:</span>
-              <span>The Daughter of:</span>
+              <span>Putra dari</span>
+              <span>Putri dari</span>
             </div>
             
-            {/* Fathers */}
+            {/* Parents Grid */}
             <div className={styles.parentRow}>
               <div className={styles.parentInfo}>
                 <p>{coupleDetails.groom.parents.father}</p>
-              </div>
-              <div className={styles.parentInfo}>
-                <p>{coupleDetails.bride.parents.father}</p>
-              </div>
-            </div>
-
-            {/* Separator */}
-            <div className={styles.parentRow}>
-              <div className={styles.parentInfo}>
                 <span className={styles.andSymbol}>&</span>
-              </div>
-              <div className={styles.parentInfo}>
-                <span className={styles.andSymbol}>&</span>
-              </div>
-            </div>
-
-            {/* Mothers */}
-            <div className={styles.parentRow}>
-              <div className={styles.parentInfo}>
                 <p>{coupleDetails.groom.parents.mother}</p>
               </div>
               <div className={styles.parentInfo}>
+                <p>{coupleDetails.bride.parents.father}</p>
+                <span className={styles.andSymbol}>&</span>
                 <p>{coupleDetails.bride.parents.mother}</p>
               </div>
             </div>
