@@ -1,0 +1,203 @@
+.mainContainer {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+    background-image: url('/asset/wedding1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .backgroundOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.7)
+    );
+  }
+  
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .imageWrapper {
+    margin: -4rem auto 1.5rem;
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+  
+  .image {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .mainTitle {
+    font-family: var(--font-playfair);
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    margin: 0;
+  }
+  
+  .names {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: var(--font-playfair);
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .brideName,
+  .groomName {
+    font-weight: 500;
+  }
+  
+  .ampersand {
+    font-style: italic;
+    color: #666;
+    font-size: 1.5rem;
+  }
+  
+  .invitationText {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .dear {
+    font-family: var(--font-cormorant);
+    font-size: 1.2rem;
+    color: #666;
+    margin: 0;
+  }
+  
+  .recipientName {
+    font-family: var(--font-playfair);
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0;
+  }
+  
+  .message {
+    font-family: var(--font-cormorant);
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+  }
+  
+  .openButton {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-family: var(--font-cormorant);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+  }
+  
+  .openButton:hover {
+    background: #444;
+    transform: translateY(-2px);
+  }
+  
+  .footnote {
+    font-family: var(--font-cormorant);
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .mainContainer {
+      padding: 1rem;
+      background-attachment: scroll;
+    }
+  
+    .card {
+      padding: 1.5rem;
+    }
+  
+    .imageWrapper {
+      width: 150px;
+      height: 150px;
+      margin: -3rem auto 1rem;
+    }
+  
+    .names {
+      font-size: 1.6rem;
+    }
+  
+    .message {
+      font-size: 1rem;
+      padding: 0 0.5rem;
+    }
+  }
+  
+  /* Extra Small Devices */
+  @media (max-width: 380px) {
+    .card {
+      padding: 1rem;
+    }
+  
+    .imageWrapper {
+      width: 120px;
+      height: 120px;
+      margin: -2.5rem auto 0.8rem;
+    }
+  
+    .names {
+      font-size: 1.4rem;
+    }
+  
+    .recipientName {
+      font-size: 1.5rem;
+    }
+  
+    .message {
+      font-size: 0.9rem;
+    }
+  
+    .openButton {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+    }
+  }

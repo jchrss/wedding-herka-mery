@@ -17,7 +17,7 @@ export default function MusicWidget() {
         setShouldPlayMusic(false);
       } else {
         audioRef.current.muted = false;
-        audioRef.current.volume = 0.8; // Set volume to 80%
+        audioRef.current.volume = 1; // Set volume to 80%
         audioRef.current.play().catch((error) => {
           console.warn("Playback failed:", error);
         });
@@ -30,14 +30,14 @@ export default function MusicWidget() {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.muted = true;
-      audioRef.current.volume = 0.8; // Set volume to 80% when component mounts
+      audioRef.current.volume = 1; // Set volume to 80% when component mounts
     }
   }, []);
 
   useEffect(() => {
     if (shouldPlayMusic && audioRef.current && !isPlaying) {
       audioRef.current.muted = false;
-      audioRef.current.volume = 0.8; // Set volume to 80% when auto-playing
+      audioRef.current.volume = 1; // Set volume to 80% when auto-playing
       audioRef.current.play().catch((error) => {
         console.warn("Playback failed:", error);
       });
@@ -53,9 +53,9 @@ export default function MusicWidget() {
         aria-label={isPlaying ? "Pause music" : "Play music"}
       >
         {isPlaying ? (
-          <Pause className={styles.icon} size={20} />
+          <Pause className={styles.icon} size={15} />
         ) : (
-          <Music2 className={styles.icon} size={20} />
+          <Music2 className={styles.icon} size={15} />
         )}
       </button>
       <audio

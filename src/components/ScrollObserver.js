@@ -17,7 +17,7 @@ export default function ScrollObserver({ children, threshold = 0.1 }) {
       },
       {
         threshold: threshold,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -40px 0px'
       }
     );
 
