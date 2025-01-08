@@ -121,8 +121,15 @@
   margin: 0.5rem auto;
 }
 
+@font-face {
+  font-family: 'Alpha Brights';
+  src: url('./Alpha Brights.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .nickname {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Alpha Brights', serif; /* Fallback to serif if the font fails to load */
   font-size: clamp(2rem, 4vw, 2.5rem);
   color: #ffffff;
   margin: 0;
