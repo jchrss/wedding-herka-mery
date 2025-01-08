@@ -1,4 +1,3 @@
-// GiftSection.js
 "use client"
 
 import { useState } from 'react';
@@ -34,13 +33,17 @@ const GiftSection = () => {
         <div className={styles.giftCard}>
           <div className={styles.bankSection}>
             <div className={styles.sectionHeader}>
-              <CreditCard size={24} />
+              <CreditCard size={24} color="#2B4570" />
               <h3>Bank Transfer</h3>
             </div>
             <div className={styles.bankDetails}>
-              <p><strong>Name:</strong> {accountDetails.name}</p>
-              <p><strong>Bank:</strong> {accountDetails.bank}</p>
-              <div className={styles.accountNumber}>
+              <div className={styles.bankInfo}>
+                <p><strong>Name:</strong> {accountDetails.name}</p>
+              </div>
+              <div className={styles.bankInfo}>
+                <p><strong>Bank:</strong> {accountDetails.bank}</p>
+              </div>
+              <div className={styles.bankInfo}>
                 <p><strong>Account:</strong> {accountDetails.accountNumber}</p>
                 <button
                   onClick={() => handleCopy(accountDetails.accountNumber)}
@@ -48,6 +51,7 @@ const GiftSection = () => {
                   title="Copy account number"
                 >
                   <Copy size={16} />
+                  Copy
                   {copiedAccount === accountDetails.accountNumber && (
                     <span className={styles.copiedTooltip}>Copied!</span>
                   )}
@@ -60,7 +64,7 @@ const GiftSection = () => {
           
           <div className={styles.qrisSection}>
             <div className={styles.sectionHeader}>
-              <QrCode size={24} />
+              <QrCode size={24} color="#2B4570" />
               <h3>QRIS</h3>
             </div>
             <div className={styles.qrisContainer}>

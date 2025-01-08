@@ -1,4 +1,4 @@
-import { supabase } from '../app/lib/supabase'
+import { supabase } from './supabase'
 
 export const addWish = async (wish) => {
   try {

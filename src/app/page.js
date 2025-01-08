@@ -1,14 +1,10 @@
-"use client"
-
-// app/page.js
 import styles from './page.module.css';
-import { Calendar, MapPin, Heart, Gift, CreditCard, Copy, QrCode } from 'lucide-react';
 import MusicWidget from '@/components/MusicWidget';
-import { useState } from 'react';
-import Image from 'next/image';
 import Scripture from '@/components/Scripture';
 import GiftSection from '@/components/GiftSection';
 import WishesSection from '@/components/WishesSection';
+import VenueSection from '@/components/VenueSection';
+import FamilySection from '@/components/familySection';
 
 export default function Home() {
   return (
@@ -35,54 +31,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section className={styles.ceremonySection}>
-        <div className={styles.ceremonyContent}>
-          <h2 className={styles.sectionTitle}>Our Special Day</h2>
-          
-          <div className={styles.timelineContainer}>
-            <div className={styles.eventCard}>
-              <h3>Pemberkatan</h3>
-              <time>10:00 WIB - Selesai</time>
-              <div className={styles.venueInfo}>
-                <MapPin size={16} />
-                <span>GPdI Rehobot Bosua</span>
-                <p>Mentawai Islands Regency, West Sumatra 25932</p>
-              </div>
-              <div className={styles.actionButtons}>
-                <button className={styles.actionButton}>
-                  <MapPin size={16} />
-                  View Map
-                </button>
-                <button className={styles.actionButton}>
-                  <Calendar size={16} />
-                  Add to Calendar
-                </button>
-              </div>
-            </div>
-
-            <div className={styles.eventCard}>
-              <h3>Resepsi</h3>
-              <time>13:00 WIB - Selesai</time>
-              <div className={styles.venueInfo}>
-                <MapPin size={16} />
-                <span>Rumah Keluarga</span>
-                <p>Pdt. Sarmen Steven Samaloisa/Manullang</p>
-              </div>
-              <div className={styles.actionButtons}>
-                <button className={styles.actionButton}>
-                  <MapPin size={16} />
-                  View Map
-                </button>
-                <button className={styles.actionButton}>
-                  <Calendar size={16} />
-                  Add to Calendar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FamilySection />
+      <VenueSection />
       <WishesSection />
       <GiftSection />
       <Scripture />
