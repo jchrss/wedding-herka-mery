@@ -1,0 +1,256 @@
+.wishesSection {
+    background-color: #ffffff;
+    padding: clamp(3rem, 10vw, 6rem) 1rem;
+    position: relative;
+  }
+  
+  .wishesContent {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .sectionTitle {
+    font-family: var(--font-playfair);
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+    color: #2d5a27;
+    margin-bottom: 3rem;
+  }
+  
+  .wishesContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  
+  .formCard {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(45, 90, 39, 0.1);
+    border: 1px solid #e8f5e9;
+  }
+  
+  .wishForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .input,
+  .textarea,
+  .select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #c8e6c9;
+    border-radius: 8px;
+    font-family: var(--font-cormorant);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background-color: white;
+  }
+  
+  .select {
+    cursor: pointer;
+  }
+  
+  .textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .input:focus,
+  .textarea:focus,
+  .select:focus {
+    outline: none;
+    border-color: #2d5a27;
+    box-shadow: 0 0 0 2px rgba(45, 90, 39, 0.1);
+  }
+  
+  .submitButton {
+    background: #2d5a27;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-cormorant);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background: #1f3d1b;
+  }
+  
+  .submitButton:disabled {
+    background: #a5d6a7;
+    cursor: not-allowed;
+  }
+  
+  .wishesDisplay {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(45, 90, 39, 0.1);
+    border: 1px solid #e8f5e9;
+  }
+  
+  .wishesHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e8f5e9;
+  }
+  
+  .wishesHeader h3 {
+    font-family: var(--font-playfair);
+    font-size: 1.5rem;
+    color: #2d5a27;
+    margin: 0;
+  }
+  
+  .wishesList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 1rem;
+  }
+  
+  .wishCard {
+    background: #f8faf8;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e8f5e9;
+  }
+  
+  .wishHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .wishHeader h4 {
+    font-family: var(--font-playfair);
+    font-size: 1.1rem;
+    color: #2d5a27;
+    margin: 0;
+  }
+  
+  .attendance {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+  }
+  
+  .attending {
+    background-color: #e8f5e9;
+    color: #2d5a27;
+  }
+  
+  .notAttending {
+    background-color: #fce4ec;
+    color: #c2185b;
+  }
+  
+  .wishMessage {
+    font-family: var(--font-cormorant);
+    color: #2f4f2f;
+    margin: 0.5rem 0;
+    line-height: 1.5;
+  }
+  
+  .wishDate {
+    font-size: 0.9rem;
+    color: #75a370;
+    display: block;
+    margin-top: 0.5rem;
+  }
+  
+  .successMessage {
+    color: #2d5a27;
+    background: #e8f5e9;
+    padding: 0.75rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .errorMessage {
+    color: #c2185b;
+    background: #fce4ec;
+    padding: 0.75rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .wishesContainer {
+      grid-template-columns: 1fr;
+    }
+    
+    .formCard,
+    .wishesDisplay {
+      padding: 1.5rem;
+    }
+    
+    .wishesList {
+      max-height: 400px;
+    }
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .formCard,
+    .wishesDisplay {
+      background: #ffffff;
+      border-color: #e8f5e9;
+    }
+  
+    .input,
+    .textarea,
+    .select {
+      background-color: #ffffff;
+      border-color: #c8e6c9;
+      color: #2f4f2f;
+    }
+  
+    .wishCard {
+      background: #f8faf8;
+      border-color: #e8f5e9;
+    }
+  
+    .wishMessage {
+      color: #2f4f2f;
+    }
+  
+    .wishDate {
+      color: #75a370;
+    }
+  
+    .attending {
+      background-color: #e8f5e9;
+      color: #2d5a27;
+    }
+  
+    .notAttending {
+      background-color: #fce4ec;
+      color: #c2185b;
+    }
+  }
