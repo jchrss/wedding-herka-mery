@@ -11,8 +11,8 @@ const FamilySection = () => {
       name: "Franky Edward Samaloisa/Manullang",
       nickname: "Franky",
       parents: {
-        father: "Pdt. Sarmen Steven Samaloisa/Manullang",
-        mother: "Ny. Mastauliyani Br.Marbun"
+        father: { name: "Pdt. Sarmen Steven Samaloisa/Manullang", passedAway: false },
+        mother: { name: "Ny. Mastauliyani Br.Marbun", passedAway: true }
       },
       instagram: "@groomhandle"
     },
@@ -20,11 +20,21 @@ const FamilySection = () => {
       name: "Juli Meri Eni Sababalat, S.Pd",
       nickname: "Juli",
       parents: {
-        father: "Bpk. Horas Sababalat",
-        mother: "Ny. Nonnik Sapalakkai"
+        father: { name: "Bpk. Horas Sababalat", passedAway: true },
+        mother: { name: "Ny. Nonnik Sapalakkai", passedAway: false }
       },
       instagram: "@bridehandle"
     }
+  };
+
+  const renderParentName = (parent) => {
+    return parent.passedAway ? (
+      <>
+        {parent.name} <span>(</span><span>&#10013;</span><span>)</span>
+      </>
+    ) : (
+      parent.name
+    );
   };
 
   return (
@@ -80,14 +90,14 @@ const FamilySection = () => {
             {/* Parents Grid */}
             <div className={styles.parentRow}>
               <div className={styles.parentInfo}>
-                <p>{coupleDetails.groom.parents.father}</p>
+                <p>{renderParentName(coupleDetails.groom.parents.father)}</p>
                 <span className={styles.andSymbol}>&</span>
-                <p>{coupleDetails.groom.parents.mother}</p>
+                <p>{renderParentName(coupleDetails.groom.parents.mother)}</p>
               </div>
               <div className={styles.parentInfo}>
-                <p>{coupleDetails.bride.parents.father}</p>
+                <p>{renderParentName(coupleDetails.bride.parents.father)}</p>
                 <span className={styles.andSymbol}>&</span>
-                <p>{coupleDetails.bride.parents.mother}</p>
+                <p>{renderParentName(coupleDetails.bride.parents.mother)}</p>
               </div>
             </div>
 
