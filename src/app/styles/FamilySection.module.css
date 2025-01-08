@@ -1,7 +1,7 @@
 /* FamilySection.module.css */
 .familySection {
   background-color: #C5A572;
-  background-image: linear-gradient(to bottom, rgba(180, 176, 170, 0.95), rgba(197, 165, 114, 0.95)),
+  background-image: linear-gradient(to bottom, rgba(197, 165, 114, 0.95), rgba(197, 165, 114, 0.95)),
                     url('/asset/floral-pattern.png');
   padding: clamp(3rem, 10vw, 6rem) 1rem;
   position: relative;
@@ -45,7 +45,7 @@
 
 .coupleImage {
   object-fit: cover;
-  object-position: center center; /* Changed from bottom to center */
+  object-position: center center;
   transition: transform 0.6s ease;
 }
 
@@ -78,9 +78,58 @@
 
 /* Parents Section */
 .parentsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.parentLabels {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 1rem;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.parentRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+
+.parentInfo {
+  padding: 1rem;
+}
+
+.parentInfo p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.andSymbol {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+}
+
+.socialLinksContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-items: center;
 }
 
 .separator {
@@ -107,42 +156,6 @@
   line-height: 1.6;
 }
 
-.parentInfo {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  padding: 2rem;
-  border-radius: 1rem;
-  text-align: center;
-}
-
-.label {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 1rem 0;
-  font-style: italic;
-}
-
-.parents {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.parents p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.125rem;
-  color: #ffffff;
-  margin: 0;
-}
-
-.parents span {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
-  font-style: italic;
-}
-
 .socialLink {
   color: #ffffff;
   opacity: 0.9;
@@ -162,11 +175,6 @@
 }
 
 @media (max-width: 768px) {
-  .parentsContainer {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
   .namesContainer {
     gap: 1rem;
   }
@@ -182,10 +190,26 @@
   .coupleImageContainer {
     margin-bottom: 3rem;
   }
+
+  .parentInfo {
+    padding: 0.75rem;
+  }
+
+  .parentInfo p {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
   .nickname {
     font-size: 1.5rem;
+  }
+
+  .parentLabels span {
+    font-size: 1rem;
+  }
+
+  .parentInfo p {
+    font-size: 0.9rem;
   }
 }

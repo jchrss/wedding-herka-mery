@@ -74,16 +74,44 @@ const FamilySection = () => {
 
           {/* Parents Information Section */}
           <div className={styles.parentsContainer}>
-            {/* Groom's Parents */}
-            <div className={styles.parentInfo}>
-              <p className={styles.label}>
-                The Son of:
-              </p>
-              <div className={styles.parents}>
+            {/* Parents Labels */}
+            <div className={styles.parentLabels}>
+              <span>The Son of:</span>
+              <span>The Daughter of:</span>
+            </div>
+            
+            {/* Fathers */}
+            <div className={styles.parentRow}>
+              <div className={styles.parentInfo}>
                 <p>{coupleDetails.groom.parents.father}</p>
-                <span>&</span>
+              </div>
+              <div className={styles.parentInfo}>
+                <p>{coupleDetails.bride.parents.father}</p>
+              </div>
+            </div>
+
+            {/* Separator */}
+            <div className={styles.parentRow}>
+              <div className={styles.parentInfo}>
+                <span className={styles.andSymbol}>&</span>
+              </div>
+              <div className={styles.parentInfo}>
+                <span className={styles.andSymbol}>&</span>
+              </div>
+            </div>
+
+            {/* Mothers */}
+            <div className={styles.parentRow}>
+              <div className={styles.parentInfo}>
                 <p>{coupleDetails.groom.parents.mother}</p>
               </div>
+              <div className={styles.parentInfo}>
+                <p>{coupleDetails.bride.parents.mother}</p>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className={styles.socialLinksContainer}>
               <a 
                 href={`https://instagram.com/${coupleDetails.groom.instagram}`}
                 className={styles.socialLink}
@@ -92,18 +120,6 @@ const FamilySection = () => {
               >
                 <Instagram size={16} />
               </a>
-            </div>
-
-            {/* Bride's Parents */}
-            <div className={styles.parentInfo}>
-              <p className={styles.label}>
-                The Daughter of:
-              </p>
-              <div className={styles.parents}>
-                <p>{coupleDetails.bride.parents.father}</p>
-                <span>&</span>
-                <p>{coupleDetails.bride.parents.mother}</p>
-              </div>
               <a 
                 href={`https://instagram.com/${coupleDetails.bride.instagram}`}
                 className={styles.socialLink}
