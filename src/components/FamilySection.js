@@ -1,3 +1,4 @@
+// FamilySection.js
 import { Instagram } from 'lucide-react';
 import Image from 'next/image';
 import styles from '../app/styles/FamilySection.module.css';
@@ -33,26 +34,47 @@ const FamilySection = () => {
       
       <div className={styles.container}>
         <div className={styles.coupleImageContainer}>
-          <Image 
-            src={coupleDetails.couple.image}
-            alt="The Happy Couple"
-            fill
-            className={styles.coupleImage}
-            priority
-          />
+          <div className={styles.imageWrapper}>
+            <Image 
+              src={coupleDetails.couple.image}
+              alt="The Happy Couple"
+              fill
+              className={styles.coupleImage}
+              priority
+              sizes="(max-width: 768px) 100vw, 1000px"
+            />
+          </div>
         </div>
 
         <div className={styles.coupleGrid}>
-          {/* Groom's Side */}
-          <div className={styles.personCard}>
-            <h2 className={styles.nickname}>
-              {coupleDetails.groom.nickname}
-            </h2>
-            <div className={styles.separator} />
-            <h3 className={styles.fullName}>
-              {coupleDetails.groom.name}
-            </h3>
-            
+          {/* Names Section */}
+          <div className={styles.namesContainer}>
+            {/* Groom's Name */}
+            <div className={styles.nameSection}>
+              <h2 className={styles.nickname}>
+                {coupleDetails.groom.nickname}
+              </h2>
+              <div className={styles.separator} />
+              <h3 className={styles.fullName}>
+                {coupleDetails.groom.name}
+              </h3>
+            </div>
+
+            {/* Bride's Name */}
+            <div className={styles.nameSection}>
+              <h2 className={styles.nickname}>
+                {coupleDetails.bride.nickname}
+              </h2>
+              <div className={styles.separator} />
+              <h3 className={styles.fullName}>
+                {coupleDetails.bride.name}
+              </h3>
+            </div>
+          </div>
+
+          {/* Parents Information Section */}
+          <div className={styles.parentsContainer}>
+            {/* Groom's Parents */}
             <div className={styles.parentInfo}>
               <p className={styles.label}>
                 The Son of:
@@ -71,18 +93,8 @@ const FamilySection = () => {
                 <Instagram size={16} />
               </a>
             </div>
-          </div>
 
-          {/* Bride's Side */}
-          <div className={styles.personCard}>
-            <h2 className={styles.nickname}>
-              {coupleDetails.bride.nickname}
-            </h2>
-            <div className={styles.separator} />
-            <h3 className={styles.fullName}>
-              {coupleDetails.bride.name}
-            </h3>
-            
+            {/* Bride's Parents */}
             <div className={styles.parentInfo}>
               <p className={styles.label}>
                 The Daughter of:
