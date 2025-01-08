@@ -30,7 +30,7 @@ const FamilySection = () => {
   const renderParentName = (parent) => {
     return parent.passedAway ? (
       <>
-        {parent.name} <span>(</span><span>&#10013;</span><span>)</span>
+        {parent.name} <span>(</span><span>&#10014;</span><span>)</span>
       </>
     ) : (
       parent.name
