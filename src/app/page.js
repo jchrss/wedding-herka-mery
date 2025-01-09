@@ -28,7 +28,7 @@ export default function Home() {
               <br className={styles.breakMobile} />
               kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri&nbsp;
               <br className={styles.breakMobile} />
-              Pernikahan putra putri kami
+              Pernikahan kami
             </p>
           </div>
         </div>
