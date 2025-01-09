@@ -1,16 +1,23 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import styles from './receiver.module.css';
-import { useMusicContext } from '../../contexts/MusicContext';
+import { useMusicContext } from '../contexts/MusicContext';
 
-export default function ReceiverPage({ params }) {
-  const unwrappedParams = React.use(params);
-  const { receiver } = unwrappedParams;
-  const decodedName = decodeURIComponent(receiver);
+export default function ReceiverPage() {
+  const searchParams = useSearchParams();
   const router = useRouter();
   const { setShouldPlayMusic } = useMusicContext();
+  
+  // Get the name from the query parameter 'n'
+  const getReceiverName = () => {
+    const name = searchParams.get('n');
+    if (!name || name.trim() === '') return 'Bapak/Ibu/Sdr/i';
+    return decodeURIComponent(name);
+  };
+
+  const decodedName = getReceiverName();
 
   const handleOpenInvitation = () => {
     setShouldPlayMusic(true);

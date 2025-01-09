@@ -42,7 +42,7 @@ const GiftSection = () => {
           <div key={account.accountNumber} className={styles.giftCard}>
             <div className={styles.bankSection}>
               <div className={styles.sectionHeader}>
-                <CreditCard size={24} color="#2B4570" />
+                <CreditCard size={24} color="#A69480" />
                 <h3>Bank Transfer</h3>
               </div>
               <div className={styles.bankDetails}>
@@ -73,7 +73,7 @@ const GiftSection = () => {
             
             <div className={styles.qrisSection}>
               <div className={styles.sectionHeader}>
-                <QrCode size={24} color="#2B4570" />
+                <QrCode size={24} color="#A69480" />
                 <h3>QRIS</h3>
               </div>
               <div className={styles.qrisContainer}>

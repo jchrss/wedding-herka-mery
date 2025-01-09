@@ -123,13 +123,13 @@
 
 @font-face {
   font-family: 'Alpha Brights';
-  src: url('./Alpha Brights.ttf') format('truetype');
+  src: url('./fonts/Alpha Brights.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 .nickname {
-  font-family: 'Alpha Brights', serif; /* Fallback to serif if the font fails to load */
+  font-family: 'Alpha Brights', serif; 
   font-size: clamp(2rem, 4vw, 2.5rem);
   color: #ffffff;
   margin: 0;

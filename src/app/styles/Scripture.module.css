@@ -1,7 +1,7 @@
 /* components/Scripture.module.css */
 .scriptureSection {
-    background-color: #f4f8f4;
-    background-image: linear-gradient(120deg, #e8f0e8 0%, #f4f8f4 100%);
+    background-color: #FDFBF9;
+    background-image: linear-gradient(120deg, #F5F1EA 0%, #FDFBF9 100%);
     padding: clamp(3rem, 10vw, 6rem) 1rem;
     position: relative;
     overflow: hidden;
@@ -44,9 +44,9 @@
     height: 250px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid rgba(44, 88, 37, 0.2);
+    border: 4px solid rgba(139, 115, 85, 0.2);
 }
-
+  
 .doveContainer img {
     width: 100%;
     height: 100%;
@@ -61,19 +61,27 @@
     padding: 0 1rem;
 }
   
+@font-face {
+    font-family: 'Brilian Signature';
+    src: url('./fonts/Brilian Signature.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+  
 .quote {
-    font-family: var(--font-playfair);
-    font-size: clamp(1.25rem, 3vw, 1.5rem);
-    color: #2c5825;
-    line-height: 1.8;
+    font-family: 'Brilian Signature', serif; 
+    font-size: clamp(1.2rem, 6vw, 4rem);
+    color: #8B7355;
+    line-height: 1; /* Reduced from 1.8 to 1 for tighter spacing */
     margin-bottom: 1rem;
-    font-weight: 500;
+    font-weight: 400;
+    letter-spacing: 0; /* Added to reduce spacing between letters */
 }
   
 .reference {
     font-family: var(--font-cormorant);
     font-size: 1.125rem;
-    color: #557a4f;
+    color: #A69481;
     margin-top: 1rem;
 }
   
@@ -86,7 +94,7 @@
 .reflectionText {
     font-family: var(--font-cormorant);
     font-size: 1.125rem;
-    color: #2c5825;
+    color: #8B7355;
     line-height: 1.8;
     margin-bottom: 1.5rem;
 }
@@ -99,7 +107,7 @@
     top: 0;
     left: 0;
     opacity: 0.15;
-    background-image: radial-gradient(circle at 50% 50%, #c8e6c9 0%, transparent 70%);
+    background-image: radial-gradient(circle at 50% 50%, #E8E4DC 0%, transparent 70%);
     pointer-events: none;
 }
   
@@ -115,12 +123,13 @@
   
     .quote {
         font-size: 1.2rem;
+        line-height: 1; /* Ensuring tight spacing on mobile too */
     }
   
     .reflectionText {
         font-size: 1rem;
     }
-
+  
     .doveContainer {
         width: 200px;
         height: 200px;
