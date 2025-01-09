@@ -167,6 +167,14 @@
     margin: 0;
     font-style: italic;
   }
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    font-family: var(--font-cormorant);
+    color: #8B7355;
+  }
   
   @keyframes slideUp {
     from {

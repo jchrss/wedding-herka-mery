@@ -62,15 +62,15 @@
 }
   
 @font-face {
-    font-family: 'Brilian Signature';
-    src: url('./fonts/Brilian Signature.otf') format('truetype');
+    font-family: 'Naturaly';
+    src: url('./fonts/Naturaly.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
   
 .quote {
-    font-family: 'Brilian Signature', serif; 
-    font-size: clamp(1.2rem, 6vw, 4rem);
+    font-family: 'Naturaly', serif; 
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
     color: #8B7355;
     line-height: 1; /* Reduced from 1.8 to 1 for tighter spacing */
     margin-bottom: 1rem;
