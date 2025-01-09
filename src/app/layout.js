@@ -22,7 +22,7 @@ export const metadata = {
     title: "Franky & Juli's Wedding",
     description: "Join us in celebrating our special day",
     images: [{
-      url: '/asset/whatsapp.png',
+      url: '/asset/whatsapp.png',  // This should be correct
       width: 1200,
       height: 630,
       alt: "Franky & Juli's Wedding",
@@ -32,7 +32,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "Franky & Juli's Wedding",
     description: "Join us in celebrating our special day",
-    images: ['/asset/whatsapp.png'],
+    images: ['/asset/whatsapp.png'],  // This should be correct
   },
 };
 
