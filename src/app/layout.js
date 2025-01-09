@@ -17,42 +17,33 @@ const cormorant = Cormorant({
 export const metadata = {
   title: "Franky & Juli's Wedding",
   description: "Join us in celebrating our special day",
-  image: "./whatsapp.png", // Update to a proper preview image if possible
-  url: "https://wedding-franky-juli.vercel.app", 
+  metadataBase: new URL('https://wedding-franky-juli.vercel.app'),
+  openGraph: {
+    title: "Franky & Juli's Wedding",
+    description: "Join us in celebrating our special day",
+    images: [{
+      url: '/asset/whatsapp.png',
+      width: 1200,
+      height: 630,
+      alt: "Franky & Juli's Wedding",
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Franky & Juli's Wedding",
+    description: "Join us in celebrating our special day",
+    images: ['/asset/whatsapp.png'],
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${cormorant.variable}`}>
-      <head>
-        {/* Basic Meta Tags */}
-        <title>{metadata.title}</title>
-        <link rel="icon" href="./favico.ico" />
-
-        {/* Open Graph Meta Tags */}
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:description" content={metadata.description} />
-        <meta property="og:image" content={metadata.image} />
-        <meta property="og:url" content={metadata.url} />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={metadata.title} />
-        <meta name="twitter:description" content={metadata.description} />
-        <meta name="twitter:image" content={metadata.image} />
-      </head>
-
       <body className="antialiased overflow-x-hidden">
-      <MusicProvider>
-        <main>{children}</main>
+        <MusicProvider>
+          <main>{children}</main>
         </MusicProvider>
       </body>
     </html>
   );
 }
-
-
-
-
-
