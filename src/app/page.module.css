@@ -14,7 +14,7 @@
   border-radius: 50px;
   color: white;
   font-family: var(--font-cormorant);
-  font-size: 0.9rem;  /* Reduced from 1.1rem */
+  font-size: 0.9rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -78,7 +78,7 @@
 
 .date {
   font-family: var(--font-cormorant);
-  font-size: clamp(0.8rem, 3vw, 1.2rem);  /* Reduced from original */
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   display: block;
@@ -92,8 +92,8 @@
 }
 
 .names {
-  font-family: 'Rainbow After Rain', serif; 
-  font-size: clamp(1.2rem, 4vw, 2.8rem);  /* Reduced from original */
+  font-family: 'Century Gothic', serif;
+  font-size: clamp(1.2rem, 4vw, 2.8rem);
   font-weight: 200;
   line-height: 1.2;
   margin: 0;
@@ -102,28 +102,37 @@
   align-items: center;
   gap: 0.3rem;
   padding: 0;
-  max-width: 100%;
+  width: 100%;
 }
 
 @font-face {
-  font-family: 'Rainbow After Rain';
-  src: url('../app/styles/fonts/Rainbow After Rain.ttf') format('truetype');
+  font-family: 'Century Gothic';
+  src: url('../app/styles/fonts/Century Gothic.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 .nameSpan {
   display: block;
-  overflow-wrap: normal;  /* Changed from break-word */
-  white-space: nowrap;  /* Added to prevent wrapping */
+  white-space: nowrap;
   text-align: center;
   line-height: 1.2;
   padding: 0.2rem 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  font-size: inherit;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.nameSpan::-webkit-scrollbar {
+  display: none;
 }
 
 .and {
-  font-size: 0.5em;  /* Reduced from 0.6em */
+  font-size: 0.5em;
   font-style: italic;
   margin: 0.2rem 0;
   font-weight: 400;
@@ -132,7 +141,7 @@
 
 .invitation {
   font-family: var(--font-cormorant);
-  font-size: clamp(0.8rem, 3vw, 1.2rem);  /* Reduced from original */
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
   letter-spacing: 0.1em;
   line-height: 1.6;
   margin: 0;
@@ -161,6 +170,7 @@
   }
   .heroContent {
     padding: 0.8rem;
+    width: 100%;
   }
   .breakMobile {
     display: block;
@@ -170,15 +180,14 @@
     margin: 1rem auto;
   }
   .names {
-    font-size: 1.8rem;  /* Fixed size for mobile */
-    gap: 0.2rem;
+    font-size: clamp(1rem, 3.5vw, 1.8rem);
+    width: 100%;
+    padding: 0 10px;
   }
   .nameSpan {
-    font-size: 1.4rem;  /* Added specific size for names */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+    font-size: inherit;
+    text-align: center;
+    padding: 0.2rem 10px;
   }
 }
 
@@ -191,10 +200,10 @@
     font-size: 0.8rem;
   }
   .names {
-    font-size: 1.6rem;
+    font-size: clamp(0.8rem, 3vw, 1.6rem);
   }
   .nameSpan {
-    font-size: 1.2rem;
+    padding: 0.2rem 5px;
   }
   .invitation {
     font-size: 0.75rem;
@@ -208,7 +217,7 @@
     padding-bottom: 2rem;
   }
   .names {
-    font-size: clamp(1.8rem, 5vw, 3rem);  /* Reduced from original */
+    font-size: clamp(1rem, 3vw, 2rem);
   }
   .divider {
     margin: 0.75rem auto;
@@ -245,15 +254,15 @@
 
 .scrollButton {
   padding: 0.8rem 1.5rem;
-  font-size: 0.9rem;  /* Reduced from 1rem */
+  font-size: 0.9rem;
 }
 
 .recipientName {
-  font-size: 1.5rem;  /* Reduced from 1.8rem */
+  font-size: 1.5rem;
 }
 
 .toRecipient {
-  font-size: 0.9rem;  /* Reduced from 1rem */
+  font-size: 0.9rem;
 }
 
 /* Section animations */

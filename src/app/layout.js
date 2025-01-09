@@ -17,8 +17,8 @@ const cormorant = Cormorant({
 export const metadata = {
   title: "Franky & Juli's Wedding",
   description: "Join us in celebrating our special day",
-  image: "/favico.ico", // Update to a proper preview image if possible
-  url: "https://impactgeneration.vercel.app", 
+  image: "./whatsapp.png", // Update to a proper preview image if possible
+  url: "https://wedding-franky-juli.vercel.app", 
 };
 
 export default function RootLayout({ children }) {
