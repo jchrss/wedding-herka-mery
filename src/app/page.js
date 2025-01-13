@@ -57,7 +57,7 @@ export default function Home() {
       <MusicWidget />
       
       <footer className={`${styles.footer} text-xs text-gray-500`}>
-        Powered by{' '}
+        Designed by{' '}
         <Image 
           src="/favico.ico" 
           alt="favicon" 

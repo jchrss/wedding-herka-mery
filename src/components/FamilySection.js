@@ -1,4 +1,4 @@
-import { Instagram } from 'lucide-react';
+import { Facebook } from 'lucide-react';
 import Image from 'next/image';
 import styles from '../app/styles/FamilySection.module.css';
 
@@ -14,7 +14,7 @@ const FamilySection = () => {
         father: { name: "Pdt. Sarmen Steven Samaloisa/Manullang", passedAway: false },
         mother: { name: "Ny. Mastauliyani Br.Marbun", passedAway: true }
       },
-      instagram: "@groomhandle"
+      instagram: "@franky.eduwardo.9"
     },
     bride: {
       name: "Juli Meri Eni Sababalat, S.Pd",
@@ -23,7 +23,7 @@ const FamilySection = () => {
         father: { name: "Bpk. Horas Sababalat", passedAway: true },
         mother: { name: "Ny. Nonnik Sapalakkai", passedAway: false }
       },
-      instagram: "@bridehandle"
+      instagram: "people/Yuli-Meri/pfbid02Yque9dJdsH5QBJFeLhFcg6j48v23BfCmvbFWG3N7GUdCqekB2PXErZxWqhCWf35zl/"
     }
   };
 
@@ -104,20 +104,20 @@ const FamilySection = () => {
             {/* Social Links */}
             <div className={styles.socialLinksContainer}>
               <a 
-                href={`https://instagram.com/${coupleDetails.groom.instagram}`}
+                href={`https://facebook.com/${coupleDetails.groom.instagram}`}
                 className={styles.socialLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram size={16} />
+                <Facebook size={16} />
               </a>
               <a 
-                href={`https://instagram.com/${coupleDetails.bride.instagram}`}
+                href={`https://facebook.com/${coupleDetails.bride.instagram}`}
                 className={styles.socialLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram size={16} />
+                <Facebook size={16} />
               </a>
             </div>
           </div>
