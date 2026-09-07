@@ -15,22 +15,22 @@ const cormorant = Cormorant({
 });
 
 export const metadata = {
-  title: "Franky & Juli's Wedding",
+  title: "Herkanusya & Meri's Wedding",
   description: "Join us in celebrating our special day",
-  metadataBase: new URL('https://wedding-franky-juli.vercel.app'),
+  metadataBase: new URL('https://wedding-herka-mery.vercel.app'),
   openGraph: {
-    title: "Franky & Juli's Wedding",
+    title: "Herkanusya & Meri's Wedding",
     description: "Join us in celebrating our special day",
     images: [{
       url: '/asset/whatsapp.png',  // This should be correct
       width: 1200,
       height: 630,
-      alt: "Franky & Juli's Wedding",
+      alt: "Herkanusya & Meri's Wedding",
     }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Franky & Juli's Wedding",
+    title: "Herkanusya & Meri's Wedding",
     description: "Join us in celebrating our special day",
     images: ['/asset/whatsapp.png'],  // This should be correct
   },

@@ -17,9 +17,9 @@ export default function Home() {
             <span className={styles.date}>Januari 19, 2025</span>
             <div className={styles.divider}></div>
             <h1 className={styles.names}>
-              <span className={styles.nameSpan}>Franky Edward Samaloisa/Manullang</span>
+              <span className={styles.nameSpan}>Herkanusya Kadalolor, S.I.P</span>
               <span className={styles.and}>&</span>
-              <span className={styles.nameSpan}>Juli Meri Eni Sababalat, S.Pd</span>
+              <span className={styles.nameSpan}>Meri Elina Samaloisa, S.I.P</span>
             </h1>
             <div className={styles.divider}></div>
             <br></br>

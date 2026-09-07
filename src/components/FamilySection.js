@@ -8,22 +8,22 @@ const FamilySection = () => {
       image: "/asset/2.jpg",
     },
     groom: {
-      name: "Franky Edward Samaloisa/Manullang",
-      nickname: "Franky",
+      name: "Herkanusya Kadalolor, S.I.P",
+      nickname: "Herkanusya",
       parents: {
-        father: { name: "Pdt. Sarmen Steven Samaloisa/Manullang", passedAway: false },
-        mother: { name: "Ny. Mastauliyani Br.Marbun", passedAway: true }
+        father: { name: "Bapak Emeritus Karel Kadalolor", passedAway: false },
+        mother: { name: "Ibu Yermina M. Larwuy", passedAway: false }
       },
-      instagram: "@franky.eduwardo.9"
+      instagram: ""
     },
     bride: {
-      name: "Juli Meri Eni Sababalat, S.Pd",
-      nickname: "Juli",
+      name: "Meri Elina Samaloisa, S.I.P",
+      nickname: "Meri",
       parents: {
-        father: { name: "Bpk. Horas Sababalat", passedAway: true },
-        mother: { name: "Ny. Nonnik Sapalakkai", passedAway: false }
+        father: { name: "Bapak Maruli Samaloisa", passedAway: false },
+        mother: { name: "Ibu Token", passedAway: true }
       },
-      instagram: "people/Yuli-Meri/pfbid02Yque9dJdsH5QBJFeLhFcg6j48v23BfCmvbFWG3N7GUdCqekB2PXErZxWqhCWf35zl/"
+      instagram: ""
     }
   };
 
