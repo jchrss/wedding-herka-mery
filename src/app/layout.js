@@ -22,7 +22,7 @@ export const metadata = {
     title: "Herkanusya & Meri's Wedding",
     description: "Join us in celebrating our special day",
     images: [{
-      url: '/asset/whatsapp.png',  // This should be correct
+      url: '/asset/whatsapp-share.jpg',
       width: 1200,
       height: 630,
       alt: "Herkanusya & Meri's Wedding",
@@ -32,7 +32,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "Herkanusya & Meri's Wedding",
     description: "Join us in celebrating our special day",
-    images: ['/asset/whatsapp.png'],  // This should be correct
+    images: ['/asset/whatsapp-share.jpg'],
   },
 };
 
