@@ -1,114 +1,151 @@
 .ceremonySection {
-    background-color: #ffffff;
-    padding: clamp(3rem, 10vw, 6rem) 1rem;
-    position: relative;
+  background-color: var(--color-cream);
+  padding: clamp(4rem, 10vw, 7rem) 1rem;
+  position: relative;
+}
+
+.ceremonyContent {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: block;
+  text-align: center;
+  font-family: var(--font-cormorant);
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-gold-deep);
+  margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-playfair);
+  font-style: italic;
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  color: var(--color-ink);
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 500;
+}
+
+.timelineContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0.5rem;
+}
+
+.cardShell {
+  background: var(--color-cream-deep);
+  border-radius: 28px;
+  padding: 0.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.eventCard {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2.25rem 2rem;
+  border: 1px solid var(--color-line);
+  transition: transform 0.5s var(--ease-lux);
+}
+
+.cardShell:hover .eventCard {
+  transform: translateY(-4px);
+}
+
+.eventCard h3 {
+  font-family: var(--font-playfair);
+  font-size: 1.4rem;
+  color: var(--color-ink);
+  margin-bottom: 0.5rem;
+}
+
+.eventCard time {
+  font-family: var(--font-cormorant);
+  font-size: 1.05rem;
+  color: var(--color-gold-deep);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+.venueInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.venueInfo span {
+  font-family: var(--font-playfair);
+  font-size: 1.1rem;
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.venueInfo p {
+  font-family: var(--font-cormorant);
+  color: var(--color-ink-soft);
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 1.7rem;
+}
+
+.actionButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1.5rem 0.4rem 0.4rem;
+  border: 1px solid var(--color-line);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-cormorant);
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-lux);
+  margin-top: 1.5rem;
+}
+
+.actionButton svg {
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  border-radius: 50%;
+  background: var(--color-cream-deep);
+  color: var(--color-gold-deep);
+  box-sizing: border-box;
+  transition: transform 0.4s var(--ease-lux);
+}
+
+.actionButton:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold-deep);
+}
+
+.actionButton:hover svg {
+  transform: translate(2px, -1px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .ceremonySection {
+    padding: 3.5rem 1rem;
   }
-  
-  .ceremonyContent {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .sectionTitle {
-    font-family: var(--font-playfair);
-    font-size: clamp(2rem, 5vw, 3rem);
-    text-align: center;
-    color: #8B7355;
-    margin-bottom: 3rem;
-  }
-  
   .timelineContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  
   .eventCard {
-    background: white;
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 4px 20px rgba(139, 115, 85, 0.1);
-    border: 1px solid #E8E4DC;
-    transition: transform 0.3s ease;
+    padding: 1.75rem 1.5rem;
   }
-  
-  .eventCard:hover {
-    transform: translateY(-5px);
-  }
-  
-  .eventCard h3 {
-    font-family: var(--font-playfair);
-    font-size: 1.5rem;
-    color: #8B7355;
-    margin-bottom: 0.5rem;
-  }
-  
-  .eventCard time {
-    font-family: var(--font-cormorant);
-    font-size: 1.1rem;
-    color: #A69481;
-    font-weight: 500;
-    display: block;
-    margin-bottom: 1rem;
-  }
-  
-  .venueInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem 0;
-    border-top: 1px solid #E8E4DC;
-  }
-  
-  .venueInfo span {
-    font-family: var(--font-playfair);
-    font-size: 1.1rem;
-    color: #8B7355;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .venueInfo p {
-    font-family: var(--font-cormorant);
-    color: #A69481;
-    line-height: 1.6;
-    margin: 0;
-  }
-  
-  .actionButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 1rem;
-    border: none;
-    border-radius: 8px;
-    background: #8B7355;
-    color: white;
-    font-family: var(--font-cormorant);
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 1.5rem;
-    width: 100%;
-  }
-  
-  .actionButton:hover {
-    background: #6D5A43;
-  }
-  
-  /* Mobile responsiveness */
-  @media (max-width: 768px) {
-    .ceremonySection {
-      padding: 3rem 1rem;
-    }
-    .timelineContainer {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    .eventCard {
-      padding: 1.5rem;
-    }
-  }
+}

@@ -53,9 +53,9 @@ export default function MusicWidget() {
         aria-label={isPlaying ? "Pause music" : "Play music"}
       >
         {isPlaying ? (
-          <Pause className={styles.icon} size={15} />
+          <Pause className={styles.icon} size={16} strokeWidth={1.5} />
         ) : (
-          <Music2 className={styles.icon} size={15} />
+          <Music2 className={styles.icon} size={16} strokeWidth={1.5} />
         )}
       </button>
       <audio

@@ -4,43 +4,7 @@
   min-height: 100vh;
   overflow: hidden;
   position: relative;
-}
-
-.scrollButton {
-  margin-top: 2rem;
-  padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50px;
-  color: white;
-  font-family: var(--font-cormorant);
-  font-size: 0.9rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-}
-
-.scrollButton:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-.container.opened .heroContent {
-  animation: fadeInUp 1.5s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  background-color: var(--color-cream);
 }
 
 .heroSection {
@@ -59,9 +23,10 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.6)
+    180deg,
+    rgba(28, 20, 15, 0.35) 0%,
+    rgba(28, 20, 15, 0.45) 45%,
+    rgba(28, 20, 15, 0.8) 100%
   );
   display: flex;
   align-items: center;
@@ -70,46 +35,42 @@
 
 .heroContent {
   text-align: center;
-  color: white;
+  color: #FBF6EF;
   padding: clamp(1rem, 5vw, 2rem);
   width: min(95%, 1000px);
-  animation: fadeIn 1.5s ease-out;
+  animation: fadeIn 1.4s var(--ease-lux);
 }
 
-.date {
+.eyebrow {
   font-family: var(--font-cormorant);
-  font-size: clamp(0.8rem, 3vw, 1.2rem);
-  letter-spacing: 0.2em;
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  letter-spacing: 0.4em;
   text-transform: uppercase;
+  color: rgba(251, 246, 239, 0.75);
   display: block;
+  margin-bottom: 1.5rem;
 }
 
 .divider {
-  width: 60px;
+  width: 50px;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.6);
-  margin: 1.5rem auto;
+  background: linear-gradient(to right, transparent, rgba(169, 130, 90, 0.9), transparent);
+  margin: 1.75rem auto;
 }
 
 .names {
-  font-family: 'Century Gothic', serif;
-  font-size: clamp(1.2rem, 4vw, 3.2rem);
-  font-weight: 200;
-  line-height: 1.2;
+  font-family: var(--font-playfair);
+  font-style: italic;
+  font-size: clamp(1.6rem, 5vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.25;
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.4rem;
   padding: 0;
   width: 100%;
-}
-
-@font-face {
-  font-family: 'Century Gothic';
-  src: url('../app/styles/fonts/Century Gothic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
 .nameSpan {
@@ -118,7 +79,6 @@
   text-align: center;
   line-height: 1.2;
   padding: 0.2rem 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   width: 100%;
   font-size: inherit;
   overflow-x: auto;
@@ -132,30 +92,65 @@
 }
 
 .and {
-  font-size: 0.5em;
-  font-style: italic;
-  margin: 0.2rem 0;
+  font-size: 0.4em;
+  font-style: normal;
+  font-family: var(--font-cormorant);
+  margin: 0.1rem 0;
   font-weight: 400;
-  opacity: 0.9;
+  color: #A9825A;
+  opacity: 0.95;
+}
+
+.date {
+  font-family: var(--font-cormorant);
+  font-size: clamp(0.8rem, 3vw, 1.1rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(251, 246, 239, 0.85);
+  display: block;
 }
 
 .invitation {
   font-family: var(--font-cormorant);
-  font-size: clamp(0.8rem, 3vw, 1.2rem);
-  letter-spacing: 0.1em;
-  line-height: 1.6;
-  margin: 0;
+  font-size: clamp(0.85rem, 2.4vw, 1.15rem);
+  letter-spacing: 0.03em;
+  line-height: 1.7;
+  margin: 1.75rem 0 0;
   font-weight: 300;
+  color: rgba(251, 246, 239, 0.9);
 }
 
 .breakMobile {
   display: none;
 }
 
+.scrollCue {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.5rem, 4vh, 2.5rem);
+  transform: translateX(-50%);
+  width: 1px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.scrollCue span {
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: rgba(251, 246, 239, 0.6);
+  animation: scrollDrop 2.2s var(--ease-lux) infinite;
+}
+
+@keyframes scrollDrop {
+  0% { transform: translateY(-100%); }
+  60%, 100% { transform: translateY(100%); }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -176,11 +171,11 @@
     display: block;
   }
   .divider {
-    width: 40px;
-    margin: 1rem auto;
+    width: 36px;
+    margin: 1.25rem auto;
   }
   .names {
-    font-size: clamp(1rem, 3.5vw, 1.8rem);
+    font-size: clamp(1.3rem, 4vw, 1.9rem);
     width: 100%;
     padding: 0 10px;
   }
@@ -197,16 +192,16 @@
     padding: 0.75rem;
   }
   .date {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   .names {
-    font-size: clamp(0.8rem, 3vw, 1.6rem);
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
   }
   .nameSpan {
     padding: 0.2rem 5px;
   }
   .invitation {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -217,76 +212,26 @@
     padding-bottom: 2rem;
   }
   .names {
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(1.1rem, 3vw, 2rem);
   }
   .divider {
-    margin: 0.75rem auto;
+    margin: 1rem auto;
+  }
+  .scrollCue {
+    display: none;
   }
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .container {
-    background-color: #000;
-  }
-  .heroOverlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.5)
-    );
-  }
-}
-
-/* Prevent overflow issues */
-@supports (-webkit-touch-callout: none) {
-  .heroSection {
-    height: -webkit-fill-available;
-  }
-}
-
-@keyframes fadeInOut {
-  0% { opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-.scrollButton {
-  padding: 0.8rem 1.5rem;
-  font-size: 0.9rem;
-}
-
-.recipientName {
-  font-size: 1.5rem;
-}
-
-.toRecipient {
-  font-size: 0.9rem;
-}
-
-/* Section animations */
+/* Section reveal animations */
 .sectionHidden {
   opacity: 0;
-  transform: translateY(60px);
-  transition: all 1s ease;
+  transform: translateY(48px);
+  filter: blur(6px);
+  transition: opacity 1s var(--ease-lux), transform 1s var(--ease-lux), filter 1s var(--ease-lux);
 }
 
 .sectionVisible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Optional: Add different delays for children elements */
-.sectionHidden > *:nth-child(1) { transition-delay: 0.2s; }
-.sectionHidden > *:nth-child(2) { transition-delay: 0.4s; }
-.sectionHidden > *:nth-child(3) { transition-delay: 0.6s; }
-
-.footer {
-  width: 100%;
-  padding: 0.5rem 0;
-  text-align: center;
-  background-color: white;
-  position: relative;
-  z-index: 10;
+  filter: blur(0);
 }

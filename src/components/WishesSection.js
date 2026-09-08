@@ -106,7 +106,8 @@ const WishesSection = () => {
   return (
     <section className={styles.wishesSection}>
       <div className={styles.wishesContent}>
-        <h2 className={styles.sectionTitle}>Ucapan & Doa</h2>
+        <span className={styles.eyebrow}>Doa Restu</span>
+        <h2 className={styles.sectionTitle}>Ucapan &amp; Doa</h2>
 
         <div className={styles.wishesContainer}>
           <div className={styles.formCard}>
@@ -153,7 +154,7 @@ const WishesSection = () => {
                 className={styles.submitButton}
                 disabled={isSubmitting}
               >
-                <Send size={16} />
+                <Send size={16} strokeWidth={1.5} />
                 {isSubmitting ? 'Mengirim...' : 'Kirim'}
               </button>
 
@@ -168,7 +169,7 @@ const WishesSection = () => {
 
           <div className={styles.wishesDisplay}>
             <div className={styles.wishesHeader}>
-              <MessageSquare size={24} />
+              <MessageSquare size={22} strokeWidth={1.5} />
               <h3>Ucapan ({wishes.length})</h3>
             </div>
             <div className={styles.wishesList}>

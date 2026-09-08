@@ -41,14 +41,16 @@ const FamilySection = () => {
       <div className={styles.watercolorBg} />
 
       <div className={styles.imageSection}>
-        <Image
-          src={coupleDetails.couple.image}
-          alt="The Happy Couple"
-          fill
-          className={styles.coupleImage}
-          priority
-          sizes="100vw"
-        />
+        <div className={styles.imageFrame}>
+          <Image
+            src={coupleDetails.couple.image}
+            alt="The Happy Couple"
+            fill
+            className={styles.coupleImage}
+            priority
+            sizes="(max-width: 768px) 85vw, 340px"
+          />
+        </div>
       </div>
 
       <div className={styles.contentSection}>
@@ -65,6 +67,8 @@ const FamilySection = () => {
                 {coupleDetails.groom.name}
               </h3>
             </div>
+
+            <span className={styles.namesAmpersand}>&amp;</span>
 
             {/* Bride's Name */}
             <div className={styles.nameSection}>

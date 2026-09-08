@@ -1,6 +1,6 @@
 .storySection {
-  background-color: #FAF6F0;
-  padding: clamp(3rem, 10vw, 6rem) 1rem;
+  background-color: var(--color-cream);
+  padding: clamp(4rem, 10vw, 7rem) 1rem;
   position: relative;
 }
 
@@ -12,19 +12,21 @@
 
 .eyebrow {
   font-family: var(--font-cormorant);
-  font-size: 0.9rem;
-  letter-spacing: 0.3em;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: #A69481;
+  color: var(--color-gold-deep);
   display: block;
   margin-bottom: 0.75rem;
 }
 
 .sectionTitle {
   font-family: var(--font-playfair);
+  font-style: italic;
   font-size: clamp(2rem, 5vw, 3rem);
-  color: #8B7355;
+  color: var(--color-ink);
   margin: 0;
+  font-weight: 500;
 }
 
 .timeline {
@@ -48,21 +50,21 @@
 }
 
 .timelineDot {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: #8B7355;
-  border: 3px solid #FAF6F0;
-  box-shadow: 0 0 0 1px #C5A572;
+  background: var(--color-gold-deep);
+  border: 3px solid var(--color-cream);
+  box-shadow: 0 0 0 1px var(--color-gold);
   flex-shrink: 0;
   margin-top: 0.5rem;
 }
 
 .timelineLine {
   flex: 1;
-  width: 2px;
-  background: #E0D5C4;
-  margin: 0.25rem 0;
+  width: 1px;
+  background: var(--color-line);
+  margin: 0.35rem 0;
 }
 
 .timelineCard {
@@ -73,13 +75,19 @@
   padding-bottom: clamp(2.5rem, 6vw, 4rem);
 }
 
+.timelineImageShell {
+  padding: 0.5rem;
+  background: var(--color-cream-deep);
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
 .timelineImage {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 5;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(139, 115, 85, 0.2);
 }
 
 .timelineText {
@@ -89,7 +97,7 @@
 .timelineYear {
   font-family: var(--font-playfair);
   font-size: clamp(1.4rem, 3vw, 1.8rem);
-  color: #8B7355;
+  color: var(--color-gold-deep);
   margin: 0 0 1rem;
 }
 
@@ -97,15 +105,15 @@
   font-family: var(--font-cormorant);
   font-style: italic;
   font-size: 1rem;
-  color: #A69481;
+  color: var(--color-ink-soft);
   font-weight: 400;
 }
 
 .timelineParagraph {
   font-family: var(--font-cormorant);
   font-size: clamp(1rem, 2vw, 1.15rem);
-  line-height: 1.7;
-  color: #5C5248;
+  line-height: 1.75;
+  color: var(--color-ink-soft);
   margin: 0 0 1rem;
 }
 
@@ -119,7 +127,7 @@
     grid-template-columns: 1fr 240px;
   }
 
-  .reverse .timelineImage {
+  .reverse .timelineImageShell {
     order: 2;
   }
 
@@ -130,19 +138,22 @@
 
 @media (max-width: 768px) {
   .timelineItem {
-    grid-template-columns: 32px 1fr;
+    grid-template-columns: 24px 1fr;
     gap: 1rem;
   }
 
   .timelineCard {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    padding-bottom: 2rem;
+    gap: 1.25rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .timelineImageShell {
+    max-width: 280px;
   }
 
   .timelineImage {
     aspect-ratio: 16 / 10;
-    max-width: 320px;
   }
 
   .timelineYear {

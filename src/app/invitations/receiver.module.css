@@ -1,257 +1,233 @@
 .pageContainer {
-    min-height: 100vh;
-    width: 100%;
-    position: relative;
-    background-image: url('/asset/wedding1.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
+  min-height: 100dvh;
+  width: 100%;
+  position: relative;
+  background-image: url('/asset/couple-adat.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.backgroundOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(28, 20, 15, 0.72),
+    rgba(28, 20, 15, 0.85)
+  );
+  backdrop-filter: blur(6px);
+}
+
+.mainContent {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.invitationCard {
+  position: relative;
+  width: 100%;
+  background: var(--color-cream);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  animation: slideUp 0.9s var(--ease-lux) forwards;
+}
+
+.imageSection {
+  display: flex;
+  justify-content: center;
+  padding-top: 2.5rem;
+}
+
+.imageFrame {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-deep));
+  box-shadow: var(--shadow-soft);
+}
+
+.coupleImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-cream);
+}
+
+.contentSection {
+  padding: 1.75rem 2.25rem 2.5rem;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 1.75rem;
+}
+
+.title {
+  font-family: var(--font-cormorant);
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-gold-deep);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.coupleNames {
+  display: flex;
+  flex-direction: row;
+  gap: 0.9rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  font-family: var(--font-playfair);
+  font-style: italic;
+  font-size: 1.9rem;
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.separator {
+  font-family: var(--font-cormorant);
+  font-size: 1.2rem;
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+.invitation {
+  border-top: 1px solid var(--color-line);
+  padding-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.recipientSection {
+  margin-bottom: 0.25rem;
+}
+
+.dear {
+  font-family: var(--font-cormorant);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.recipientName {
+  font-family: var(--font-playfair);
+  font-size: 1.5rem;
+  color: var(--color-ink);
+  margin: 0;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.message {
+  font-family: var(--font-cormorant);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.openButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-gold-deep);
+  color: var(--color-cream);
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  font-family: var(--font-cormorant);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-lux);
+  margin: 0.25rem auto 0;
+  width: 100%;
+}
+
+.openButton:hover {
+  background: var(--color-espresso);
+  transform: translateY(-2px);
+}
+
+.note {
+  font-family: var(--font-cormorant);
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  margin: 0;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-family: var(--font-cormorant);
+  color: var(--color-ink-soft);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  
-  .backgroundOverlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.6)
-    );
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .mainContent {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
   .invitationCard {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    animation: slideUp 0.8s ease-out forwards;
-  }
-  
-  .imageSection {
-    background: linear-gradient(45deg, #f3f4f6, #ffffff);
-    padding: 2rem 0;
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-  
-  .imageFrame {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    padding: 5px;
-    background: white;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .coupleImage {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .contentSection {
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  .header {
-    margin-bottom: 2rem;
-  }
-  
-  .title {
-    font-family: var(--font-playfair);
-    font-size: 1.25rem;
-    color: #666;
-    margin-bottom: 1rem;
-    font-weight: 400;
-  }
-  
-  .coupleNames {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
+    border-radius: 22px;
   }
 
-  @font-face {
-    font-family: 'Winter Prime';
-    src: url('../styles/fonts/Winter Prime.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  .contentSection {
+    padding: 1.5rem 1.5rem 2rem;
   }
-  
+
+  .imageFrame {
+    width: 100px;
+    height: 100px;
+  }
+
   .name {
-    font-family: 'Winter Prime', serif;;
-    font-size: 3rem;
-    color: #333;
-    font-weight: 600;
+    font-size: 1.6rem;
   }
-  
-  .separator {
-    font-family: var(--font-playfair);
-    font-size: 1.5rem;
-    color: #666;
-    font-style: italic;
-  }
-  
-  .invitation {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .recipientSection {
-    margin-bottom: 1rem;
-  }
-  
-  .dear {
-    font-family: var(--font-cormorant);
-    font-size: 1.1rem;
-    color: #666;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  
+
   .recipientName {
-    font-family: var(--font-playfair);
-    font-size: 2rem;
-    color: #333;
-    margin: 0;
-    font-weight: 500;
+    font-size: 1.3rem;
   }
-  
+
   .message {
-    font-family: var(--font-cormorant);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #666;
-    max-width: 400px;
-    margin: 0 auto;
+    font-size: 0.95rem;
   }
-  
+
   .openButton {
-    background: linear-gradient(45deg, #333, #444);
-    color: white;
-    border: none;
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    font-family: var(--font-cormorant);
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin: 1rem auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
   }
-  
-  .openButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(45deg, #444, #555);
-  }
-  
-  .note {
-    font-family: var(--font-cormorant);
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0;
-    font-style: italic;
-  }
-  .loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
-    font-family: var(--font-cormorant);
-    color: #8B7355;
-  }
-  
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .pageContainer {
-      padding: 1.5rem 1rem;
-    }
-  
-    .imageFrame {
-      width: 120px;
-      height: 120px;
-    }
-  
-    .name {
-      font-size: 2rem;
-    }
-  
-    .recipientName {
-      font-size: 1.75rem;
-    }
-  
-    .message {
-      font-size: 1rem;
-      padding: 0 0.5rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .pageContainer {
-      padding: 1rem;
-    }
-  
-    .invitationCard {
-      border-radius: 20px;
-    }
-  
-    .imageSection {
-      padding: 1.5rem 0;
-    }
-  
-    .imageFrame {
-      width: 100px;
-      height: 100px;
-    }
-  
-    .contentSection {
-      padding: 1.5rem;
-    }
-  
-    .name {
-      font-size: 1.75rem;
-    }
-  
-    .separator {
-      font-size: 1.25rem;
-    }
-  
-    .recipientName {
-      font-size: 1.5rem;
-    }
-  
-    .message {
-      font-size: 0.95rem;
-    }
-  
-    .openButton {
-      padding: 0.875rem 2rem;
-      font-size: 1rem;
-    }
-  }
+}

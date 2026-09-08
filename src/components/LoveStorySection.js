@@ -72,14 +72,16 @@ const LoveStorySection = () => {
 
             <div className={styles.timelineCard}>
               {entry.image && (
-                <div className={styles.timelineImage}>
-                  <Image
-                    src={entry.image}
-                    alt={`Kenangan tahun ${entry.year}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    style={{ objectFit: 'cover' }}
-                  />
+                <div className={styles.timelineImageShell}>
+                  <div className={styles.timelineImage}>
+                    <Image
+                      src={entry.image}
+                      alt={`Kenangan tahun ${entry.year}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
                 </div>
               )}
               <div className={styles.timelineText}>
