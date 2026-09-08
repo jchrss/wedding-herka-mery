@@ -27,10 +27,15 @@
   padding-top: clamp(3rem, 8vw, 5rem);
 }
 
+/*
+  Narrower than the photo's own 2:3 so the frame crops the sides too, which is
+  what lets object-position below pull the couple into the middle -- the
+  backdrop and pampas on the left had them sitting off-centre.
+*/
 .imageFrame {
   position: relative;
   width: min(78%, 340px);
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 5 / 8;
   border-radius: 50% 50% 8px 8px / 35% 35% 8px 8px;
   overflow: hidden;
   box-shadow: var(--shadow-card);
@@ -39,7 +44,7 @@
 
 .coupleImage {
   object-fit: cover;
-  object-position: center 20%;
+  object-position: 62% 18%;
 }
 
 .contentSection {
@@ -56,10 +61,15 @@
   margin: 0 auto;
 }
 
+/*
+  Top-aligned, otherwise centring drops the shorter column: one full name wraps
+  to two lines and the other does not, which left the two nicknames and their
+  rules sitting at different heights.
+*/
 .namesContainer {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  align-items: center;
+  align-items: start;
   gap: clamp(1rem, 3vw, 2rem);
   text-align: center;
 }
@@ -72,6 +82,7 @@
 }
 
 .namesAmpersand {
+  align-self: center;
   font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(1.2rem, 3vw, 1.6rem);
@@ -156,9 +167,13 @@
     padding: 2rem 1rem 0;
   }
 
+  /*
+    Kept side by side rather than stacked so each name sits directly above its
+    own parents in the row below.
+  */
   .namesContainer {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 
   .namesAmpersand {
@@ -166,11 +181,15 @@
   }
 
   .nickname {
-    font-size: 2.6rem;
+    font-size: 2.1rem;
   }
 
   .fullName {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+  }
+
+  .separator {
+    width: 44px;
   }
 
   .parentInfo p {
