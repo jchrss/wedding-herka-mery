@@ -38,10 +38,19 @@ export default function InvitationGate({ children }) {
 
   return (
     <>
-      {stage === 'intro' && <OpeningIntro onComplete={() => setStage('cover')} />}
-      {(stage === 'cover' || stage === 'closing') && (
-        <InvitationCover onOpen={handleOpen} exiting={stage === 'closing'} />
+      {/*
+        The cover is mounted from the start, underneath the opening, so the
+        opening fades straight into it. Mounting it only once the opening had
+        finished meant the fade briefly exposed the invitation behind both.
+      */}
+      {!opened && (
+        <InvitationCover
+          onOpen={handleOpen}
+          exiting={stage === 'closing'}
+          interactive={stage === 'cover'}
+        />
       )}
+      {stage === 'intro' && <OpeningIntro onComplete={() => setStage('cover')} />}
       <div aria-hidden={!opened}>{children}</div>
     </>
   );

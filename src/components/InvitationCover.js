@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from '../app/styles/InvitationCover.module.css';
 
-export default function InvitationCover({ onOpen, exiting }) {
+export default function InvitationCover({ onOpen, exiting, interactive = true }) {
   /*
     Read on the client rather than with useSearchParams: this sits on the
     statically rendered home page, and useSearchParams would opt the whole
@@ -47,7 +47,13 @@ export default function InvitationCover({ onOpen, exiting }) {
           <span className={styles.recipientName}>{name}</span>
         </div>
 
-        <button onClick={onOpen} className={styles.openButton} aria-label="Buka Undangan">
+        {/* Not reachable by keyboard while the opening still covers it. */}
+        <button
+          onClick={onOpen}
+          className={styles.openButton}
+          aria-label="Buka Undangan"
+          tabIndex={interactive ? 0 : -1}
+        >
           <span>Buka Undangan</span>
         </button>
       </div>
