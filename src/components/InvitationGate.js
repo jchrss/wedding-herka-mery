@@ -16,6 +16,19 @@ export default function InvitationGate({ children }) {
 
   const opened = stage === 'open';
 
+  /*
+    A revisit would otherwise restore the scroll position from last time, and
+    the invitation was being revealed at whatever section the guest left off
+    at before jumping to the top. The restore is turned off and the page put
+    back to the hero up front, while the cover still hides everything.
+  */
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   // The invitation stays mounted behind the cover so its images are ready.
   useEffect(() => {
     document.body.style.overflow = opened ? '' : 'hidden';
@@ -27,13 +40,9 @@ export default function InvitationGate({ children }) {
   const handleOpen = () => {
     // Started from the click itself so the browser lets the audio play.
     setShouldPlayMusic(true);
+    window.scrollTo(0, 0);
     setStage('closing');
-    setTimeout(() => {
-      // Browsers can restore a previous scroll position on reload, so the
-      // invitation is pinned back to the hero as it is revealed.
-      window.scrollTo(0, 0);
-      setStage('open');
-    }, 700);
+    setTimeout(() => setStage('open'), 700);
   };
 
   return (

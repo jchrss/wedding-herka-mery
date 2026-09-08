@@ -1,13 +1,21 @@
 "use client"
 
 import { useState, useEffect } from 'react'
+import {
+  addDoc,
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+  serverTimestamp,
+} from 'firebase/firestore'
 import styles from '../app/styles/WishesSection.module.css'
 import { MessageSquare, Send } from 'lucide-react'
-import { supabase, isSupabaseConfigured } from '../app/lib/supabase'
+import { db, WISHES_COLLECTION } from '../app/lib/firebase'
 
 const WishesSection = () => {
   const [wishes, setWishes] = useState([])
-  const [loading, setLoading] = useState(isSupabaseConfigured)
+  const [loading, setLoading] = useState(true)
   const [formData, setFormData] = useState({
     nama: '',
     ucapan: '',
@@ -16,74 +24,40 @@ const WishesSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState('')
 
+  // Live so a guest sees their own wish, and later ones, without reloading.
   useEffect(() => {
-    if (!isSupabaseConfigured) return
+    const wishesQuery = query(
+      collection(db, WISHES_COLLECTION),
+      orderBy('createdAt', 'desc')
+    )
 
-    loadWishes()
-    const unsubscribe = setupRealtimeSubscription()
+    const unsubscribe = onSnapshot(
+      wishesQuery,
+      (snapshot) => {
+        setWishes(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+        setLoading(false)
+      },
+      (error) => {
+        console.error('Error loading wishes:', error)
+        setLoading(false)
+      }
+    )
+
     return unsubscribe
   }, [])
 
-  const loadWishes = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('wishes')
-        .select('*')
-        .order('created_at', { ascending: false })
-
-      if (error) throw error
-      setWishes(data)
-    } catch (error) {
-      console.error('Error loading wishes:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const setupRealtimeSubscription = () => {
-    const channel = supabase
-      .channel('wishes_db_changes')
-      .on(
-        'postgres_changes',
-        {
-          event: 'INSERT',
-          schema: 'public',
-          table: 'wishes'
-        },
-        (payload) => {
-          setWishes(currentWishes => [payload.new, ...currentWishes])
-        }
-      )
-      .subscribe()
-
-    return () => {
-      supabase.removeChannel(channel)
-    }
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    if (!isSupabaseConfigured) {
-      setSubmitStatus('error')
-      return
-    }
-
     setIsSubmitting(true)
     setSubmitStatus('')
 
     try {
-      const { data, error } = await supabase
-        .from('wishes')
-        .insert([{
-          nama: formData.nama,
-          ucapan: formData.ucapan,
-          kehadiran: formData.kehadiran
-        }])
-        .select()
-        .single()
-
-      if (error) throw error
+      await addDoc(collection(db, WISHES_COLLECTION), {
+        nama: formData.nama,
+        ucapan: formData.ucapan,
+        kehadiran: formData.kehadiran,
+        createdAt: serverTimestamp()
+      })
 
       setSubmitStatus('success')
       setFormData({
@@ -99,8 +73,18 @@ const WishesSection = () => {
     }
   }
 
-  if (loading) {
-    return <div className={styles.loading}>Loading wishes...</div>
+  /*
+    serverTimestamp() resolves on the server, so the local echo of a wish that
+    was just sent carries a null createdAt for a moment.
+  */
+  const formatDate = (createdAt) => {
+    const date = createdAt?.toDate ? createdAt.toDate() : null
+    if (!date) return 'Baru saja'
+    return date.toLocaleDateString('id-ID', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
   }
 
   return (
@@ -173,19 +157,19 @@ const WishesSection = () => {
               <h3>Ucapan ({wishes.length})</h3>
             </div>
             <div className={styles.wishesList}>
+              {loading && <p className={styles.wishMessage}>Memuat ucapan...</p>}
+              {!loading && wishes.length === 0 && (
+                <p className={styles.wishMessage}>
+                  Belum ada ucapan. Jadilah yang pertama memberi doa restu.
+                </p>
+              )}
               {wishes.map((wish) => (
                 <div key={wish.id} className={styles.wishCard}>
                   <div className={styles.wishHeader}>
                     <h4>{wish.nama}</h4>
                   </div>
                   <p className={styles.wishMessage}>{wish.ucapan}</p>
-                  <span className={styles.wishDate}>
-                    {new Date(wish.created_at).toLocaleDateString('id-ID', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
-                  </span>
+                  <span className={styles.wishDate}>{formatDate(wish.createdAt)}</span>
                 </div>
               ))}
             </div>
