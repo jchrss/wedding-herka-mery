@@ -50,8 +50,6 @@ export default function InvitationCover({ onOpen, exiting }) {
         <button onClick={onOpen} className={styles.openButton} aria-label="Buka Undangan">
           <span>Buka Undangan</span>
         </button>
-
-        <p className={styles.note}>*Mohon bawa undangan ini saat hadir</p>
       </div>
     </div>
   );

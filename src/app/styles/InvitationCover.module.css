@@ -186,15 +186,6 @@
   transform: translateY(0);
 }
 
-.note {
-  margin-top: 0.85rem;
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-style: italic;
-  color: rgba(251, 246, 239, 0.6);
-  animation: coverIn 1.2s var(--ease-lux) 0.85s both;
-}
-
 @keyframes coverIn {
   from {
     opacity: 0;
@@ -217,8 +208,7 @@
   .rule,
   .date,
   .greet,
-  .openButton,
-  .note {
+  .openButton {
     animation: none;
   }
 

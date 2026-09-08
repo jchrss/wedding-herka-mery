@@ -28,7 +28,12 @@ export default function InvitationGate({ children }) {
     // Started from the click itself so the browser lets the audio play.
     setShouldPlayMusic(true);
     setStage('closing');
-    setTimeout(() => setStage('open'), 700);
+    setTimeout(() => {
+      // Browsers can restore a previous scroll position on reload, so the
+      // invitation is pinned back to the hero as it is revealed.
+      window.scrollTo(0, 0);
+      setStage('open');
+    }, 700);
   };
 
   return (
