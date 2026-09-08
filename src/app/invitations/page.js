@@ -32,53 +32,43 @@ function InvitationContent() {
   }
 
   return (
-    <div className={styles.invitationCard}>
-      <div className={styles.imageSection}>
-        <div className={styles.imageFrame}>
-          <Image
-            src="/asset/couple-formal.jpg"
-            alt="Wedding"
-            width={150}
-            height={150}
-            className={styles.coupleImage}
-            priority
-          />
+    <div className={styles.cover}>
+      <Image
+        src="/asset/couple-adat.jpg"
+        alt="Herkanusya dan Meri Elina dalam busana adat"
+        fill
+        priority
+        sizes="100vw"
+        className={styles.coverPhoto}
+      />
+      <div className={styles.scrim} />
+
+      <div className={styles.inner}>
+        <span className={styles.eyebrow}>The Wedding Of</span>
+
+        <h1 className={styles.names}>
+          <span>Worili Herkanusya Kadalolor, S.I.P</span>
+          <span className={styles.amp}>&amp;</span>
+          <span>Meri Elina Samaloisa, S.I.P</span>
+        </h1>
+
+        <div className={styles.rule} />
+        <span className={styles.date}>04 Oktober 2026</span>
+
+        <div className={styles.greet}>
+          <span className={styles.dear}>Kepada Yth,</span>
+          <span className={styles.recipientName}>{decodedName}</span>
         </div>
-      </div>
 
-      <div className={styles.contentSection}>
-        <div className={styles.header}>
-          <h1 className={styles.title}>The Wedding Of</h1>
+        <button
+          onClick={handleOpenInvitation}
+          className={styles.openButton}
+          aria-label="Buka Undangan"
+        >
+          <span>Buka Undangan</span>
+        </button>
 
-          <div className={styles.coupleNames}>
-            <span className={styles.name}>Herka</span>
-            <span className={styles.separator}>&</span>
-            <span className={styles.name}>Meri</span>
-          </div>
-        </div>
-
-        <div className={styles.invitation}>
-          <div className={styles.recipientSection}>
-            <span className={styles.dear}>Kepada Yth,</span>
-            <h2 className={styles.recipientName}>{decodedName}</h2>
-          </div>
-
-          <p className={styles.message}>
-            Dengan penuh sukacita, kami mengundang Anda untuk hadir dan memberkati hari pernikahan kami
-          </p>
-
-          <button
-            onClick={handleOpenInvitation}
-            className={styles.openButton}
-            aria-label="Open Wedding Invitation"
-          >
-            Buka Undangan
-          </button>
-
-          <p className={styles.note}>
-            *Mohon bawa undangan ini saat hadir
-          </p>
-        </div>
+        <p className={styles.note}>*Mohon bawa undangan ini saat hadir</p>
       </div>
     </div>
   );
@@ -86,24 +76,14 @@ function InvitationContent() {
 
 // Loading component
 function LoadingInvitation() {
-  return (
-    <div className={styles.invitationCard}>
-      <div className={styles.loading}>Loading invitation...</div>
-    </div>
-  );
+  return <div className={styles.loading}>Loading invitation...</div>;
 }
 
 // Main page component
 export default function ReceiverPage() {
   return (
-    <div className={styles.pageContainer}>
-      <div className={styles.backgroundOverlay} />
-
-      <main className={styles.mainContent}>
-        <Suspense fallback={<LoadingInvitation />}>
-          <InvitationContent />
-        </Suspense>
-      </main>
-    </div>
+    <Suspense fallback={<LoadingInvitation />}>
+      <InvitationContent />
+    </Suspense>
   );
 }

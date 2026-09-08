@@ -4,6 +4,8 @@ import WishesSection from '@/components/WishesSection';
 import VenueSection from '@/components/VenueSection';
 import FamilySection from '@/components/FamilySection';
 import LoveStorySection from '@/components/LoveStorySection';
+import GallerySection from '@/components/GallerySection';
+import GiftSection from '@/components/GiftSection';
 import ScrollObserver from '@/components/ScrollObserver';
 
 export default function Home() {
@@ -14,9 +16,9 @@ export default function Home() {
           <div className={styles.heroContent}>
             <span className={styles.eyebrow}>The Wedding Of</span>
             <h1 className={styles.names}>
-              <span className={styles.nameSpan}>Herkanusya Kadalolor</span>
+              <span className={styles.nameSpan}>Worili Herkanusya Kadalolor, S.I.P</span>
               <span className={styles.and}>&amp;</span>
-              <span className={styles.nameSpan}>Meri Elina Samaloisa</span>
+              <span className={styles.nameSpan}>Meri Elina Samaloisa, S.I.P</span>
             </h1>
             <div className={styles.divider}></div>
             <span className={styles.date}>Oktober 04, 2026</span>
@@ -43,11 +45,19 @@ export default function Home() {
       </ScrollObserver>
 
       <ScrollObserver>
+        <GallerySection />
+      </ScrollObserver>
+
+      <ScrollObserver>
         <VenueSection />
       </ScrollObserver>
 
       <ScrollObserver>
         <WishesSection />
+      </ScrollObserver>
+
+      <ScrollObserver>
+        <GiftSection />
       </ScrollObserver>
 
       <MusicWidget />

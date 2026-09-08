@@ -1,0 +1,136 @@
+/*
+  Centred, panel-free layout in the manner of the Filip & Michelle gift page:
+  the type is the design, with rules under the headings instead of card edges.
+*/
+.giftSection {
+  background-color: var(--color-cream);
+  padding: clamp(4rem, 10vw, 7rem) 1rem clamp(4.5rem, 11vw, 8rem);
+  text-align: center;
+}
+
+.stage {
+  width: min(100% - 2rem, 32rem);
+  margin-inline: auto;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-cormorant);
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-gold-deep);
+  margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-playfair);
+  font-style: italic;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-ink);
+  margin: 0 0 1.75rem;
+  font-weight: 500;
+}
+
+.lead {
+  font-family: var(--font-cormorant);
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  letter-spacing: 0.04em;
+  line-height: 1.9;
+  color: var(--color-ink-soft);
+  margin-bottom: clamp(2.5rem, 7vw, 3.5rem);
+}
+
+.heading {
+  font-family: var(--font-cormorant);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-line);
+  margin-bottom: 2rem;
+}
+
+.bank {
+  margin-bottom: clamp(2.75rem, 8vw, 4rem);
+}
+
+.bankName,
+.number,
+.holder {
+  font-family: var(--font-cormorant);
+  color: var(--color-ink);
+  line-height: 1.6;
+}
+
+.bankName {
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.number {
+  font-family: var(--font-playfair);
+  font-size: clamp(1.35rem, 5vw, 1.75rem);
+  letter-spacing: 0.06em;
+  color: var(--color-gold-deep);
+  margin: 0.35rem 0;
+}
+
+.number a {
+  color: inherit;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.holder {
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.copy {
+  background: transparent;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  padding: 0.6rem 2rem;
+  font-family: var(--font-cormorant);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold-deep);
+  cursor: pointer;
+  transition: background 0.4s var(--ease-lux), color 0.4s var(--ease-lux);
+}
+
+.copy:hover {
+  background: var(--color-gold-deep);
+  color: var(--color-cream);
+  border-color: var(--color-gold-deep);
+}
+
+.qris {
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(2.5rem, 7vw, 3.5rem);
+}
+
+.qrisImage {
+  display: block;
+  width: min(70%, 300px);
+  height: auto;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+.closing {
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  line-height: 1.9;
+  color: var(--color-ink-soft);
+}

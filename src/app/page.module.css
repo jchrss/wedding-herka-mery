@@ -61,7 +61,7 @@
 .names {
   font-family: var(--font-playfair);
   font-style: italic;
-  font-size: clamp(1.6rem, 5vw, 3.4rem);
+  font-size: clamp(1.3rem, 4.2vw, 2.8rem);
   font-weight: 500;
   line-height: 1.25;
   margin: 0;
@@ -73,22 +73,19 @@
   width: 100%;
 }
 
+/*
+  The full legal names with titles are long, so they wrap rather than scroll
+  sideways -- balanced so a trailing ", S.I.P" never lands alone on a line.
+*/
 .nameSpan {
   display: block;
-  white-space: nowrap;
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.25;
   padding: 0.2rem 0;
-  width: 100%;
+  max-width: 22ch;
+  margin-inline: auto;
+  text-wrap: balance;
   font-size: inherit;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.nameSpan::-webkit-scrollbar {
-  display: none;
 }
 
 .and {
@@ -175,7 +172,7 @@
     margin: 1.25rem auto;
   }
   .names {
-    font-size: clamp(1.3rem, 4vw, 1.9rem);
+    font-size: clamp(1.2rem, 5.6vw, 1.75rem);
     width: 100%;
     padding: 0 10px;
   }
@@ -183,6 +180,7 @@
     font-size: inherit;
     text-align: center;
     padding: 0.2rem 10px;
+    max-width: 18ch;
   }
 }
 

@@ -1,197 +1,201 @@
-.pageContainer {
+/*
+  Full-bleed cover, modelled on the Filledwithmiracles sangjit cover: the photo
+  fills the viewport and the type sits directly on it -- no card, no panel.
+  Everything is anchored to the lower half so the couple's faces, which sit in
+  the top ~45% of the frame, are never covered.
+*/
+.cover {
+  position: relative;
   min-height: 100dvh;
   width: 100%;
-  position: relative;
-  background-image: url('/asset/couple-adat.jpg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1rem;
-}
-
-.backgroundOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(28, 20, 15, 0.72),
-    rgba(28, 20, 15, 0.85)
-  );
-  backdrop-filter: blur(6px);
-}
-
-.mainContent {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-}
-
-.invitationCard {
-  position: relative;
-  width: 100%;
-  background: var(--color-cream);
-  border-radius: 28px;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
-  animation: slideUp 0.9s var(--ease-lux) forwards;
-}
-
-.imageSection {
-  display: flex;
-  justify-content: center;
-  padding-top: 2.5rem;
-}
-
-.imageFrame {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  padding: 5px;
-  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-deep));
-  box-shadow: var(--shadow-soft);
-}
-
-.coupleImage {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--color-cream);
-}
-
-.contentSection {
-  padding: 1.75rem 2.25rem 2.5rem;
-  text-align: center;
-}
-
-.header {
-  margin-bottom: 1.75rem;
-}
-
-.title {
-  font-family: var(--font-cormorant);
-  font-size: 0.8rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--color-gold-deep);
-  margin-bottom: 0.75rem;
-  font-weight: 500;
-}
-
-.coupleNames {
-  display: flex;
-  flex-direction: row;
-  gap: 0.9rem;
-  align-items: center;
-  justify-content: center;
-}
-
-.name {
-  font-family: var(--font-playfair);
-  font-style: italic;
-  font-size: 1.9rem;
-  color: var(--color-ink);
-  font-weight: 500;
-}
-
-.separator {
-  font-family: var(--font-cormorant);
-  font-size: 1.2rem;
-  color: var(--color-gold);
-  font-style: italic;
-}
-
-.invitation {
-  border-top: 1px solid var(--color-line);
-  padding-top: 1.75rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  padding: 0 1.5rem clamp(2.5rem, 9dvh, 4.5rem);
+  isolation: isolate;
 }
 
-.recipientSection {
-  margin-bottom: 0.25rem;
+.coverPhoto {
+  object-fit: cover;
+  object-position: 50% 22%;
+  z-index: -2;
+}
+
+/*
+  Both faces occupy roughly the top 45% of the frame, so the scrim stays light
+  there and only builds from ~50% down, where the type sits. The type block is
+  sized to start below that line -- see .inner.
+*/
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 14, 10, 0.2) 0%,
+    rgba(20, 14, 10, 0.14) 34%,
+    rgba(20, 14, 10, 0.42) 52%,
+    rgba(20, 14, 10, 0.76) 74%,
+    rgba(20, 14, 10, 0.92) 100%
+  );
+}
+
+/*
+  Kept compact -- type sizes and gaps below are tuned so the whole block lands
+  in the lower ~40% of the frame, clear of the couple's faces.
+*/
+.inner {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #FBF6EF;
+}
+
+.eyebrow {
+  font-family: var(--font-cormorant);
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(251, 246, 239, 0.8);
+  animation: coverIn 1s var(--ease-lux) 0.05s both;
+}
+
+.names {
+  margin: 0.6rem 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05rem;
+  font-family: var(--font-playfair);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(0.92rem, 4vw, 1.3rem);
+  line-height: 1.35;
+  text-shadow: 0 2px 18px rgba(20, 14, 10, 0.6);
+  animation: coverIn 1.1s var(--ease-lux) 0.15s both;
+}
+
+.amp {
+  font-family: var(--font-cormorant);
+  font-style: normal;
+  font-size: 0.62em;
+  color: #D6AE7B;
+}
+
+.rule {
+  width: 44px;
+  height: 1px;
+  margin: 0.9rem 0;
+  background: linear-gradient(to right, transparent, rgba(214, 174, 123, 0.9), transparent);
+  animation: coverIn 1.1s var(--ease-lux) 0.3s both;
+}
+
+.date {
+  font-family: var(--font-cormorant);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(251, 246, 239, 0.9);
+  animation: coverIn 1.1s var(--ease-lux) 0.4s both;
+}
+
+.greet {
+  margin-top: clamp(1.1rem, 3.4dvh, 1.9rem);
+  animation: coverIn 1.2s var(--ease-lux) 0.55s both;
 }
 
 .dear {
-  font-family: var(--font-cormorant);
-  font-size: 0.9rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-ink-soft);
   display: block;
-  margin-bottom: 0.4rem;
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  color: rgba(251, 246, 239, 0.75);
+  margin-bottom: 0.3rem;
 }
 
 .recipientName {
+  display: block;
   font-family: var(--font-playfair);
-  font-size: 1.5rem;
-  color: var(--color-ink);
-  margin: 0;
+  font-size: clamp(1.2rem, 5.6vw, 1.6rem);
   font-weight: 500;
-  word-break: break-word;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  color: #E7C79B;
+  overflow-wrap: anywhere;
+  text-shadow: 0 2px 18px rgba(20, 14, 10, 0.6);
 }
 
-.message {
-  font-family: var(--font-cormorant);
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--color-ink-soft);
-  max-width: 400px;
-  margin: 0 auto;
-}
-
+/* Outline pill that fills from the bottom on hover, as on the reference cover. */
 .openButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-gold-deep);
-  color: var(--color-cream);
-  border: none;
-  padding: 1rem 1.5rem;
-  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  margin-top: clamp(1.1rem, 3.4dvh, 1.9rem);
+  padding: 0.85rem 2.2rem;
+  background: transparent;
+  border: 1px solid rgba(214, 174, 123, 0.9);
+  border-radius: 999px;
   font-family: var(--font-cormorant);
-  font-size: 1.1rem;
-  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #FBF6EF;
   cursor: pointer;
-  transition: all 0.4s var(--ease-lux);
-  margin: 0.25rem auto 0;
-  width: 100%;
+  transition: color 0.45s var(--ease-lux), letter-spacing 0.45s var(--ease-lux);
+  animation: coverIn 1.2s var(--ease-lux) 0.7s both;
+}
+
+.openButton span {
+  position: relative;
+  z-index: 1;
+}
+
+.openButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #D6AE7B;
+  transform: translateY(101%);
+  transition: transform 0.5s var(--ease-lux);
 }
 
 .openButton:hover {
-  background: var(--color-espresso);
-  transform: translateY(-2px);
+  color: #2E2621;
+  letter-spacing: 0.36em;
+}
+
+.openButton:hover::before {
+  transform: translateY(0);
 }
 
 .note {
+  margin-top: 0.85rem;
   font-family: var(--font-cormorant);
-  font-size: 0.85rem;
-  color: var(--color-ink-soft);
-  margin: 0;
+  font-size: 0.75rem;
   font-style: italic;
-  opacity: 0.8;
+  color: rgba(251, 246, 239, 0.6);
+  animation: coverIn 1.2s var(--ease-lux) 0.85s both;
 }
 
 .loading {
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 200px;
+  justify-content: center;
+  min-height: 100dvh;
   font-family: var(--font-cormorant);
   color: var(--color-ink-soft);
+  background: var(--color-cream);
 }
 
-@keyframes slideUp {
+@keyframes coverIn {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -199,35 +203,34 @@
   }
 }
 
-/* Responsive Styles */
-@media (max-width: 480px) {
-  .invitationCard {
-    border-radius: 22px;
+/*
+  Every element above enters with animation-fill-mode: both, so it starts at
+  opacity 0. If animations never run the whole cover would read as a bare
+  photo, so the entrance is dropped rather than left mid-flight.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow,
+  .names,
+  .rule,
+  .date,
+  .greet,
+  .openButton,
+  .note {
+    animation: none;
   }
+}
 
-  .contentSection {
-    padding: 1.5rem 1.5rem 2rem;
-  }
-
-  .imageFrame {
-    width: 100px;
-    height: 100px;
-  }
-
-  .name {
-    font-size: 1.6rem;
-  }
-
-  .recipientName {
-    font-size: 1.3rem;
-  }
-
-  .message {
-    font-size: 0.95rem;
+@media (max-height: 680px) {
+  .greet {
+    margin-top: 1.35rem;
   }
 
   .openButton {
-    padding: 0.9rem 1.5rem;
-    font-size: 1rem;
+    margin-top: 1.35rem;
+    padding: 0.8rem 2rem;
+  }
+
+  .rule {
+    margin: 0.9rem 0;
   }
 }

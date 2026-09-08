@@ -43,7 +43,7 @@ const story = [
   {
     year: '2026',
     label: 'Menikah',
-    image: '/asset/couple-formal.jpg',
+    image: '/asset/couple-red.jpg',
     paragraphs: [
       ['Lama? Ya.', 'Tapi kami masih di sini.', 'Hampir 7 tahun.'],
       ['Cinta tak selalu tentang awal yang indah.', 'Tapi tentang bertahan saat badai datang.', 'Dan kami buktikan—', 'kami akan resmi menjadi satu menjadi suami dan istri.', 'Dalam ikatan suci yang diberkati.'],
@@ -55,8 +55,7 @@ const LoveStorySection = () => {
   return (
     <section className={styles.storySection}>
       <div className={styles.storyHeader}>
-        <span className={styles.eyebrow}>Story Mereka</span>
-        <h2 className={styles.sectionTitle}>Perjalanan Kasih Kami</h2>
+        <h2 className={styles.sectionTitle}>Our Story</h2>
       </div>
 
       <div className={styles.timeline}>
