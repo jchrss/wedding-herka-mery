@@ -1,0 +1,151 @@
+.storySection {
+  background-color: #FAF6F0;
+  padding: clamp(3rem, 10vw, 6rem) 1rem;
+  position: relative;
+}
+
+.storyHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto clamp(2.5rem, 6vw, 4rem);
+}
+
+.eyebrow {
+  font-family: var(--font-cormorant);
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #A69481;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-playfair);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #8B7355;
+  margin: 0;
+}
+
+.timeline {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 1.5rem;
+}
+
+.timelineMarker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timelineDot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8B7355;
+  border: 3px solid #FAF6F0;
+  box-shadow: 0 0 0 1px #C5A572;
+  flex-shrink: 0;
+  margin-top: 0.5rem;
+}
+
+.timelineLine {
+  flex: 1;
+  width: 2px;
+  background: #E0D5C4;
+  margin: 0.25rem 0;
+}
+
+.timelineCard {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.timelineImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(139, 115, 85, 0.2);
+}
+
+.timelineText {
+  min-width: 0;
+}
+
+.timelineYear {
+  font-family: var(--font-playfair);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  color: #8B7355;
+  margin: 0 0 1rem;
+}
+
+.timelineLabel {
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: 1rem;
+  color: #A69481;
+  font-weight: 400;
+}
+
+.timelineParagraph {
+  font-family: var(--font-cormorant);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+  color: #5C5248;
+  margin: 0 0 1rem;
+}
+
+.timelineParagraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Alternate card layout on wide screens: image on the right for odd rows */
+@media (min-width: 769px) {
+  .reverse .timelineCard {
+    grid-template-columns: 1fr 240px;
+  }
+
+  .reverse .timelineImage {
+    order: 2;
+  }
+
+  .reverse .timelineText {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .timelineItem {
+    grid-template-columns: 32px 1fr;
+    gap: 1rem;
+  }
+
+  .timelineCard {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .timelineImage {
+    aspect-ratio: 16 / 10;
+    max-width: 320px;
+  }
+
+  .timelineYear {
+    font-size: 1.3rem;
+  }
+}

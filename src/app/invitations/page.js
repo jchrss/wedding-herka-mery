@@ -30,7 +30,7 @@ function InvitationContent() {
       <div className={styles.imageSection}>
         <div className={styles.imageFrame}>
           <Image
-            src="/asset/1.jpg"
+            src="/asset/couple-formal.jpg"
             alt="Wedding"
             width={150}
             height={150}
@@ -45,9 +45,9 @@ function InvitationContent() {
           <h1 className={styles.title}>The Wedding Of</h1>
           
           <div className={styles.coupleNames}>
-            <span className={styles.name}>Franky</span>
+            <span className={styles.name}>Herka</span>
             <span className={styles.separator}>&</span>
-            <span className={styles.name}>Juli</span>
+            <span className={styles.name}>Meri</span>
           </div>
         </div>
 

@@ -1,29 +1,28 @@
-import { Facebook } from 'lucide-react';
 import Image from 'next/image';
 import styles from '../app/styles/FamilySection.module.css';
 
 const FamilySection = () => {
   const coupleDetails = {
     couple: {
-      image: "/asset/2.jpg",
+      image: "/asset/couple-close.jpg",
     },
     groom: {
-      name: "Herkanusya Kadalolor, S.I.P",
-      nickname: "Herkanusya",
+      name: "Worili Herkanusya Kadalolor, S.I.P",
+      nickname: "Herka",
+      birthOrder: "Anak Ke-4",
       parents: {
         father: { name: "Bapak Emeritus Karel Kadalolor", passedAway: false },
         mother: { name: "Ibu Yermina M. Larwuy", passedAway: false }
-      },
-      instagram: ""
+      }
     },
     bride: {
       name: "Meri Elina Samaloisa, S.I.P",
       nickname: "Meri",
+      birthOrder: "Anak Ke-4",
       parents: {
         father: { name: "Bapak Maruli Samaloisa", passedAway: false },
         mother: { name: "Ibu Token", passedAway: true }
-      },
-      instagram: ""
+      }
     }
   };
 
@@ -40,9 +39,9 @@ const FamilySection = () => {
   return (
     <section className={styles.familySection}>
       <div className={styles.watercolorBg} />
-      
+
       <div className={styles.imageSection}>
-        <Image 
+        <Image
           src={coupleDetails.couple.image}
           alt="The Happy Couple"
           fill
@@ -83,10 +82,10 @@ const FamilySection = () => {
           <div className={styles.parentsContainer}>
             {/* Parents Labels */}
             <div className={styles.parentLabels}>
-              <span>Putra dari</span>
-              <span>Putri dari</span>
+              <span>{coupleDetails.groom.birthOrder} dari pasangan</span>
+              <span>{coupleDetails.bride.birthOrder} dari pasangan</span>
             </div>
-            
+
             {/* Parents Grid */}
             <div className={styles.parentRow}>
               <div className={styles.parentInfo}>
@@ -99,26 +98,6 @@ const FamilySection = () => {
                 <span className={styles.andSymbol}>&</span>
                 <p>{renderParentName(coupleDetails.bride.parents.mother)}</p>
               </div>
-            </div>
-
-            {/* Social Links */}
-            <div className={styles.socialLinksContainer}>
-              <a 
-                href={`https://facebook.com/${coupleDetails.groom.instagram}`}
-                className={styles.socialLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Facebook size={16} />
-              </a>
-              <a 
-                href={`https://facebook.com/${coupleDetails.bride.instagram}`}
-                className={styles.socialLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Facebook size={16} />
-              </a>
             </div>
           </div>
         </div>

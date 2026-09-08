@@ -47,9 +47,9 @@
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url('/asset/wedding1.jpg');
+  background-image: url('/asset/hero.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   background-attachment: fixed;
   margin: 0;
   padding: 0;

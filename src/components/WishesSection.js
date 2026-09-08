@@ -3,11 +3,11 @@
 import { useState, useEffect } from 'react'
 import styles from '../app/styles/WishesSection.module.css'
 import { MessageSquare, Send } from 'lucide-react'
-import { supabase } from '../app/lib/supabase'
+import { supabase, isSupabaseConfigured } from '../app/lib/supabase'
 
 const WishesSection = () => {
   const [wishes, setWishes] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(isSupabaseConfigured)
   const [formData, setFormData] = useState({
     nama: '',
     ucapan: '',
@@ -17,8 +17,11 @@ const WishesSection = () => {
   const [submitStatus, setSubmitStatus] = useState('')
 
   useEffect(() => {
+    if (!isSupabaseConfigured) return
+
     loadWishes()
-    setupRealtimeSubscription()
+    const unsubscribe = setupRealtimeSubscription()
+    return unsubscribe
   }, [])
 
   const loadWishes = async () => {
@@ -60,6 +63,12 @@ const WishesSection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    if (!isSupabaseConfigured) {
+      setSubmitStatus('error')
+      return
+    }
+
     setIsSubmitting(true)
     setSubmitStatus('')
 
@@ -98,7 +107,7 @@ const WishesSection = () => {
     <section className={styles.wishesSection}>
       <div className={styles.wishesContent}>
         <h2 className={styles.sectionTitle}>Ucapan & Doa</h2>
-        
+
         <div className={styles.wishesContainer}>
           <div className={styles.formCard}>
             <form onSubmit={handleSubmit} className={styles.wishForm}>
@@ -113,7 +122,7 @@ const WishesSection = () => {
                   className={styles.input}
                 />
               </div>
-              
+
               <div className={styles.formGroup}>
                 <textarea
                   name="ucapan"
@@ -139,8 +148,8 @@ const WishesSection = () => {
                 </select>
               </div>
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className={styles.submitButton}
                 disabled={isSubmitting}
               >

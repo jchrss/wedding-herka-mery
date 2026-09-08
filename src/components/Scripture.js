@@ -24,7 +24,7 @@ const Scripture = () => {
       <div className={styles.scriptureContainer}>
         <div className={styles.doveContainer}>
           <Image
-            src="/asset/1.jpg"
+            src="/asset/couple-adat.jpg"
             alt="Couple photo"
             fill
             style={{ objectFit: 'cover' }}

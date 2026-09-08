@@ -2,10 +2,10 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import MusicWidget from '@/components/MusicWidget';
 import Scripture from '@/components/Scripture';
-import GiftSection from '@/components/GiftSection';
 import WishesSection from '@/components/WishesSection';
 import VenueSection from '@/components/VenueSection';
 import FamilySection from '@/components/FamilySection';
+import LoveStorySection from '@/components/LoveStorySection';
 import ScrollObserver from '@/components/ScrollObserver';
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       <section className={styles.heroSection}>
         <div className={styles.heroOverlay}>
           <div className={styles.heroContent}>
-            <span className={styles.date}>Januari 19, 2025</span>
+            <span className={styles.date}>Oktober 04, 2026</span>
             <div className={styles.divider}></div>
             <h1 className={styles.names}>
               <span className={styles.nameSpan}>Herkanusya Kadalolor, S.I.P</span>
@@ -39,15 +39,15 @@ export default function Home() {
       </ScrollObserver>
 
       <ScrollObserver>
+        <LoveStorySection />
+      </ScrollObserver>
+
+      <ScrollObserver>
         <VenueSection />
       </ScrollObserver>
 
       <ScrollObserver>
         <WishesSection />
-      </ScrollObserver>
-
-      <ScrollObserver>
-        <GiftSection />
       </ScrollObserver>
 
       <ScrollObserver>
