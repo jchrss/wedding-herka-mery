@@ -24,26 +24,48 @@ const WishesSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState('')
 
-  // Live so a guest sees their own wish, and later ones, without reloading.
+  /*
+    Live so a guest sees their own wish, and later ones, without reloading.
+
+    A listener that errors is dropped by the SDK and never resumes on its own,
+    so a page left open through an outage -- or opened before the backend was
+    reachable -- would sit empty until a manual refresh. It re-subscribes
+    instead.
+  */
   useEffect(() => {
-    const wishesQuery = query(
-      collection(db, WISHES_COLLECTION),
-      orderBy('createdAt', 'desc')
-    )
+    let unsubscribe = () => {}
+    let retry
+    let cancelled = false
 
-    const unsubscribe = onSnapshot(
-      wishesQuery,
-      (snapshot) => {
-        setWishes(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
-        setLoading(false)
-      },
-      (error) => {
-        console.error('Error loading wishes:', error)
-        setLoading(false)
-      }
-    )
+    const subscribe = () => {
+      if (cancelled) return
 
-    return unsubscribe
+      const wishesQuery = query(
+        collection(db, WISHES_COLLECTION),
+        orderBy('createdAt', 'desc')
+      )
+
+      unsubscribe = onSnapshot(
+        wishesQuery,
+        (snapshot) => {
+          setWishes(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+          setLoading(false)
+        },
+        (error) => {
+          console.error('Error loading wishes:', error)
+          setLoading(false)
+          retry = setTimeout(subscribe, 10000)
+        }
+      )
+    }
+
+    subscribe()
+
+    return () => {
+      cancelled = true
+      clearTimeout(retry)
+      unsubscribe()
+    }
   }, [])
 
   const handleSubmit = async (e) => {
