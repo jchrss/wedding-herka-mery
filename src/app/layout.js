@@ -17,7 +17,7 @@ const cormorant = Cormorant({
 export const metadata = {
   title: "Herkanusya & Meri's Wedding",
   description: "Join us in celebrating our special day",
-  metadataBase: new URL('https://wedding-herka-mery.vercel.app'),
+  metadataBase: new URL('https://herkamery.vercel.app'),
   openGraph: {
     title: "Herkanusya & Meri's Wedding",
     description: "Join us in celebrating our special day",
