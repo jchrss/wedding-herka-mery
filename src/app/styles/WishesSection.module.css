@@ -12,7 +12,7 @@
 .eyebrow {
   display: block;
   text-align: center;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 0.85rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -21,7 +21,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(2rem, 5vw, 3rem);
   text-align: center;
@@ -64,7 +64,7 @@
   padding: 0.85rem 1.25rem;
   border: 1px solid var(--color-line);
   border-radius: 14px;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 1rem;
   transition: border-color 0.3s var(--ease-lux), box-shadow 0.3s var(--ease-lux);
   background-color: var(--color-cream);
@@ -94,7 +94,7 @@
   padding: 1rem;
   border: none;
   border-radius: 50px;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 1.05rem;
   cursor: pointer;
   display: flex;
@@ -134,7 +134,7 @@
 }
 
 .wishesHeader h3 {
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-size: 1.4rem;
   color: var(--color-ink);
   margin: 0;
@@ -165,7 +165,7 @@
 }
 
 .wishHeader h4 {
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-size: 1.1rem;
   color: var(--color-ink);
   margin: 0;
@@ -173,7 +173,7 @@
 }
 
 .wishMessage {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   color: var(--color-ink-soft);
   margin: 0.5rem 0;
   line-height: 1.5;
@@ -193,7 +193,7 @@
   padding: 0.85rem;
   border-radius: 12px;
   text-align: center;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
 }
 
 .errorMessage {
@@ -202,12 +202,12 @@
   padding: 0.85rem;
   border-radius: 12px;
   text-align: center;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
 }
 
 .loading {
   text-align: center;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   color: var(--color-ink-soft);
   padding: 4rem 1rem;
 }

@@ -42,7 +42,7 @@
 }
 
 .eyebrow {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: clamp(0.75rem, 2vw, 0.95rem);
   letter-spacing: 0.4em;
   text-transform: uppercase;
@@ -59,7 +59,7 @@
 }
 
 .names {
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(1.3rem, 4.2vw, 2.8rem);
   font-weight: 500;
@@ -91,7 +91,7 @@
 .and {
   font-size: 0.4em;
   font-style: normal;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   margin: 0.1rem 0;
   font-weight: 400;
   color: #A9825A;
@@ -99,7 +99,7 @@
 }
 
 .date {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: clamp(0.8rem, 3vw, 1.1rem);
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -108,7 +108,7 @@
 }
 
 .invitation {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: clamp(0.85rem, 2.4vw, 1.15rem);
   letter-spacing: 0.03em;
   line-height: 1.7;
@@ -152,6 +152,29 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/*
+  On wide screens the portrait hero crops to its top, putting both faces in the
+  middle of the frame, so the type drops to the lower third to clear them.
+*/
+@media (min-width: 769px) {
+  /*
+    A wide viewport only shows a horizontal slice of this portrait, and anchored
+    to the top that slice puts both faces dead centre, right under the names.
+    Shifting the crop down lifts them into the upper third instead.
+  */
+  .heroSection {
+    background-position: center 30%;
+  }
+
+  .heroOverlay {
+    align-items: flex-end;
+  }
+
+  .heroContent {
+    padding-bottom: clamp(5rem, 14vh, 9rem);
   }
 }
 

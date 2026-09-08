@@ -15,7 +15,7 @@
 
 .eyebrow {
   display: block;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 0.85rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -24,7 +24,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(2rem, 5vw, 3rem);
   color: var(--color-ink);
@@ -33,7 +33,7 @@
 }
 
 .lead {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: clamp(0.95rem, 2.2vw, 1.1rem);
   letter-spacing: 0.04em;
   line-height: 1.9;
@@ -42,7 +42,7 @@
 }
 
 .heading {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 0.9rem;
   letter-spacing: 0.28em;
@@ -58,22 +58,22 @@
   margin-bottom: clamp(2.75rem, 8vw, 4rem);
 }
 
-.bankName,
 .number,
 .holder {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   color: var(--color-ink);
   line-height: 1.6;
 }
 
-.bankName {
-  font-size: 1rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+.bankLogo {
+  display: block;
+  width: 78px;
+  height: auto;
+  margin: 0 auto 0.75rem;
 }
 
 .number {
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-size: clamp(1.35rem, 5vw, 1.75rem);
   letter-spacing: 0.06em;
   color: var(--color-gold-deep);
@@ -98,7 +98,7 @@
   border: 1px solid var(--color-gold);
   border-radius: 999px;
   padding: 0.6rem 2rem;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 0.8rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -113,22 +113,8 @@
   border-color: var(--color-gold-deep);
 }
 
-.qris {
-  display: flex;
-  justify-content: center;
-  margin-bottom: clamp(2.5rem, 7vw, 3.5rem);
-}
-
-.qrisImage {
-  display: block;
-  width: min(70%, 300px);
-  height: auto;
-  border-radius: 16px;
-  box-shadow: var(--shadow-soft);
-}
-
 .closing {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-style: italic;
   font-size: clamp(0.95rem, 2.2vw, 1.05rem);
   line-height: 1.9;

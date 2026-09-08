@@ -5,6 +5,8 @@ const story = [
   {
     year: '2019',
     image: '/asset/story-2019.jpg',
+    width: 960,
+    height: 720,
     paragraphs: [
       ['STPMD Yogyakarta. Sosialisasi internal kampus.', 'Aku panitia. Dia maba.', 'Berpapasan tanpa sapa.', 'Cuek. Biasa.', 'Dua garis sejajar yang tak pernah terbayang akan bertemu.'],
       ['Dua makrab di tahun yang sama mempertemukan.', 'Entah kebetulan atau skenario langit.', 'Dari asing, jadi dekat.', 'Dari cuek, jadi lihat—dengan cara berbeda.', 'Tatapan kosong berubah bisik.', 'Senyum basa-basi berubah hangat.'],
@@ -14,6 +16,8 @@ const story = [
   {
     year: '2020',
     image: '/asset/story-2020.jpg',
+    width: 1280,
+    height: 960,
     paragraphs: [
       ['PDKT berbulan-bulan. Sampai berganti tahun.', 'Sabar diuji. Rasa ditempa.', 'Pesan. Tawa. Rindu.', 'Semua jadi batu loncatan menuju ikatan.'],
       ['11 Januari—status berganti.', 'Bukan teman. Tapi pacar.', 'Satu kata. Mengubah segalanya.'],
@@ -29,6 +33,8 @@ const story = [
   {
     year: '2023',
     image: '/asset/story-2023.jpg',
+    width: 1600,
+    height: 1204,
     paragraphs: [
       ['Wisudah mempertemukan dua keluarga.', 'Semi lamaran. Komitmen serius antar dua rumah.'],
     ],
@@ -36,6 +42,8 @@ const story = [
   {
     year: '2024 — 2025',
     image: '/asset/story-2024.jpg',
+    width: 1200,
+    height: 1600,
     paragraphs: [
       ['Jarak memisahkan.', 'Long distance relationship.', 'Rindu jadi makanan sehari-hari.', 'Percaya jadi pondasi.'],
     ],
@@ -44,6 +52,8 @@ const story = [
     year: '2026',
     label: 'Menikah',
     image: '/asset/couple-red.jpg',
+    width: 2730,
+    height: 4095,
     paragraphs: [
       ['Lama? Ya.', 'Tapi kami masih di sini.', 'Hampir 7 tahun.'],
       ['Cinta tak selalu tentang awal yang indah.', 'Tapi tentang bertahan saat badai datang.', 'Dan kami buktikan—', 'kami akan resmi menjadi satu menjadi suami dan istri.', 'Dalam ikatan suci yang diberkati.'],
@@ -72,15 +82,19 @@ const LoveStorySection = () => {
             <div className={styles.timelineCard}>
               {entry.image && (
                 <div className={styles.timelineImageShell}>
-                  <div className={styles.timelineImage}>
-                    <Image
-                      src={entry.image}
-                      alt={`Kenangan tahun ${entry.year}`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      style={{ objectFit: 'cover' }}
-                    />
-                  </div>
+                  {/*
+                    Natural aspect ratio rather than one fixed frame: these run
+                    from 4:3 landscape to 2:3 portrait, and cropping them all to
+                    the same shape cut heads off the tall ones.
+                  */}
+                  <Image
+                    src={entry.image}
+                    alt={`Kenangan tahun ${entry.year}`}
+                    width={entry.width}
+                    height={entry.height}
+                    sizes="(max-width: 768px) 80vw, 260px"
+                    className={styles.timelineImage}
+                  />
                 </div>
               )}
               <div className={styles.timelineText}>

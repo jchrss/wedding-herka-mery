@@ -72,7 +72,7 @@
 }
 
 .namesAmpersand {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(1.2rem, 3vw, 1.6rem);
   color: #A9825A;
@@ -88,7 +88,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   text-align: center;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 1rem;
   color: rgba(251, 246, 239, 0.55);
   font-style: italic;
@@ -107,7 +107,7 @@
 }
 
 .parentInfo p {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 1.1rem;
   color: rgba(251, 246, 239, 0.92);
   margin: 0;
@@ -130,22 +130,16 @@
 }
 
 .nickname {
-  font-family: 'Alpha Brights', serif;
-  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-family: var(--font-script);
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  line-height: 1.15;
   color: #FBF6EF;
   margin: 0;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'Alpha Brights';
-  src: url('./fonts/Alpha Brights.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  font-weight: 400;
 }
 
 .fullName {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 1.05rem;
   color: rgba(251, 246, 239, 0.7);
   margin: 0;
@@ -172,11 +166,11 @@
   }
 
   .nickname {
-    font-size: 2rem;
+    font-size: 2.6rem;
   }
 
   .fullName {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .parentInfo p {
@@ -194,7 +188,7 @@
   }
 
   .nickname {
-    font-size: 1.7rem;
+    font-size: 2.2rem;
   }
 
   .parentLabels span {

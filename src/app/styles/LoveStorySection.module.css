@@ -11,7 +11,7 @@
 }
 
 .eyebrow {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 0.85rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -21,7 +21,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(2rem, 5vw, 3rem);
   color: var(--color-ink);
@@ -83,11 +83,10 @@
 }
 
 .timelineImage {
-  position: relative;
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: auto;
   border-radius: 14px;
-  overflow: hidden;
 }
 
 .timelineText {
@@ -95,14 +94,14 @@
 }
 
 .timelineYear {
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-size: clamp(1.4rem, 3vw, 1.8rem);
   color: var(--color-gold-deep);
   margin: 0 0 1rem;
 }
 
 .timelineLabel {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-style: italic;
   font-size: 1rem;
   color: var(--color-ink-soft);
@@ -110,7 +109,7 @@
 }
 
 .timelineParagraph {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.15rem);
   line-height: 1.75;
   color: var(--color-ink-soft);
@@ -150,10 +149,6 @@
 
   .timelineImageShell {
     max-width: 280px;
-  }
-
-  .timelineImage {
-    aspect-ratio: 16 / 10;
   }
 
   .timelineYear {

@@ -1,13 +1,12 @@
 /*
   Full-bleed cover, modelled on the Filledwithmiracles sangjit cover: the photo
-  fills the viewport and the type sits directly on it -- no card, no panel.
-  Everything is anchored to the lower half so the couple's faces, which sit in
-  the top ~45% of the frame, are never covered.
+  fills the screen and the type sits directly on it -- no card, no panel. It is
+  a fixed overlay above the invitation itself, which is scroll-locked behind it.
 */
 .cover {
-  position: relative;
-  min-height: 100dvh;
-  width: 100%;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -15,19 +14,38 @@
   align-items: center;
   text-align: center;
   padding: 0 1.5rem clamp(2.5rem, 9dvh, 4.5rem);
-  isolation: isolate;
+  /* Shows through wherever the portrait photo is letterboxed on wide screens. */
+  background: linear-gradient(180deg, #3A2C20 0%, #241A13 60%, #17100C 100%);
+  transition: opacity 0.7s var(--ease-lux), transform 0.8s var(--ease-lux);
+}
+
+.cover.exiting {
+  opacity: 0;
+  transform: scale(1.04) translateY(-2%);
+  pointer-events: none;
 }
 
 .coverPhoto {
   object-fit: cover;
-  object-position: 50% 22%;
+  object-position: 50% 18%;
   z-index: -2;
 }
 
 /*
+  On anything wider than a tall phone the 2:3 portrait would be cropped to a
+  horizontal band across the couple's chests, so past that point the whole
+  frame is shown instead and the gradient above fills the sides.
+*/
+@media (min-aspect-ratio: 3/4) {
+  .coverPhoto {
+    object-fit: contain;
+    object-position: 50% 0%;
+  }
+}
+
+/*
   Both faces occupy roughly the top 45% of the frame, so the scrim stays light
-  there and only builds from ~50% down, where the type sits. The type block is
-  sized to start below that line -- see .inner.
+  there and only builds from ~50% down, where the type sits.
 */
 .scrim {
   position: absolute;
@@ -37,16 +55,12 @@
     180deg,
     rgba(20, 14, 10, 0.2) 0%,
     rgba(20, 14, 10, 0.14) 34%,
-    rgba(20, 14, 10, 0.42) 52%,
-    rgba(20, 14, 10, 0.76) 74%,
-    rgba(20, 14, 10, 0.92) 100%
+    rgba(20, 14, 10, 0.44) 52%,
+    rgba(20, 14, 10, 0.78) 74%,
+    rgba(20, 14, 10, 0.93) 100%
   );
 }
 
-/*
-  Kept compact -- type sizes and gaps below are tuned so the whole block lands
-  in the lower ~40% of the frame, clear of the couple's faces.
-*/
 .inner {
   width: 100%;
   max-width: 440px;
@@ -57,7 +71,7 @@
 }
 
 .eyebrow {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 0.7rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
@@ -71,7 +85,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.05rem;
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-style: italic;
   font-weight: 500;
   font-size: clamp(0.92rem, 4vw, 1.3rem);
@@ -81,8 +95,8 @@
 }
 
 .amp {
-  font-family: var(--font-cormorant);
-  font-style: normal;
+  font-family: var(--font-display);
+  font-style: italic;
   font-size: 0.62em;
   color: #D6AE7B;
 }
@@ -96,7 +110,7 @@
 }
 
 .date {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 0.8rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -111,7 +125,7 @@
 
 .dear {
   display: block;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 0.9rem;
   letter-spacing: 0.06em;
@@ -121,11 +135,10 @@
 
 .recipientName {
   display: block;
-  font-family: var(--font-playfair);
-  font-size: clamp(1.2rem, 5.6vw, 1.6rem);
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  line-height: 1.25;
+  font-family: var(--font-script);
+  font-size: clamp(1.7rem, 8vw, 2.3rem);
+  line-height: 1.2;
+  font-weight: 400;
   color: #E7C79B;
   overflow-wrap: anywhere;
   text-shadow: 0 2px 18px rgba(20, 14, 10, 0.6);
@@ -140,7 +153,7 @@
   background: transparent;
   border: 1px solid rgba(214, 174, 123, 0.9);
   border-radius: 999px;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 0.8rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -175,21 +188,11 @@
 
 .note {
   margin-top: 0.85rem;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 0.75rem;
   font-style: italic;
   color: rgba(251, 246, 239, 0.6);
   animation: coverIn 1.2s var(--ease-lux) 0.85s both;
-}
-
-.loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100dvh;
-  font-family: var(--font-cormorant);
-  color: var(--color-ink-soft);
-  background: var(--color-cream);
 }
 
 @keyframes coverIn {
@@ -217,6 +220,10 @@
   .openButton,
   .note {
     animation: none;
+  }
+
+  .cover {
+    transition: none;
   }
 }
 

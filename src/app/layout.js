@@ -1,17 +1,32 @@
 // app/layout.js
-import { Playfair_Display, Cormorant } from "next/font/google";
+import { Bodoni_Moda, Jost, Pinyon_Script } from "next/font/google";
 import { MusicProvider } from './contexts/MusicContext';
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+// Editorial display face -- high contrast, used italic for names and headings.
+const bodoni = Bodoni_Moda({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
-const cormorant = Cormorant({
-  variable: "--font-cormorant",
+// Geometric sans for body copy and the letterspaced uppercase labels.
+const jost = Jost({
+  variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+// Script accent for the couple's short names and the monogram.
+const pinyon = Pinyon_Script({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -38,7 +53,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${cormorant.variable}`}>
+    <html
+      lang="id"
+      className={`${bodoni.variable} ${jost.variable} ${pinyon.variable}`}
+    >
       <body className="antialiased overflow-x-hidden">
         <MusicProvider>
           <main>{children}</main>

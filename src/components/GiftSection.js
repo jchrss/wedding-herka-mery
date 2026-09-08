@@ -48,28 +48,21 @@ const GiftSection = () => {
 
         <h3 className={styles.heading}>Bank Transfer</h3>
         <div className={styles.bank}>
-          <p className={styles.bankName}>Bank BRI</p>
+          <Image
+            src="/asset/bri-logo.png"
+            alt="Bank BRI"
+            width={204}
+            height={80}
+            className={styles.bankLogo}
+          />
           {/*
             iOS linkifies bare digit runs as phone numbers, which tints and
             underlines the account and offers to dial it. Copying belongs to the
-            button below, so the inserted link is neutralised here.
+            button below, so the inserted link is neutralised in the CSS.
           */}
           <p className={styles.number}>{ACCOUNT}</p>
           <p className={styles.holder}>Meri Elina Samaloisa</p>
           <CopyButton text={ACCOUNT} />
-        </div>
-
-        <h3 className={styles.heading}>QRIS</h3>
-        <div className={styles.qris}>
-          <Image
-            src="/asset/qris.jpg"
-            alt="Kode QRIS untuk transfer ke rekening Meri Elina Samaloisa"
-            width={1170}
-            height={1717}
-            sizes="(max-width: 640px) 70vw, 300px"
-            className={styles.qrisImage}
-            loading="lazy"
-          />
         </div>
 
         <p className={styles.closing}>

@@ -10,7 +10,7 @@
 
 .eyebrow {
   display: block;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 0.85rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -19,7 +19,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(2rem, 5vw, 3rem);
   color: var(--color-ink);

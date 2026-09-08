@@ -12,7 +12,7 @@
 .eyebrow {
   display: block;
   text-align: center;
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 0.85rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -21,7 +21,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(2rem, 5vw, 3rem);
   text-align: center;
@@ -57,14 +57,14 @@
 }
 
 .eventCard h3 {
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-size: 1.4rem;
   color: var(--color-ink);
   margin-bottom: 0.5rem;
 }
 
 .eventCard time {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 1.05rem;
   color: var(--color-gold-deep);
   font-weight: 500;
@@ -82,7 +82,7 @@
 }
 
 .venueInfo span {
-  font-family: var(--font-playfair);
+  font-family: var(--font-display);
   font-size: 1.1rem;
   color: var(--color-ink);
   display: flex;
@@ -91,7 +91,7 @@
 }
 
 .venueInfo p {
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   color: var(--color-ink-soft);
   line-height: 1.6;
   margin: 0;
@@ -108,7 +108,7 @@
   border-radius: 50px;
   background: transparent;
   color: var(--color-ink);
-  font-family: var(--font-cormorant);
+  font-family: var(--font-body);
   font-size: 1rem;
   text-decoration: none;
   cursor: pointer;
